@@ -8,7 +8,10 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+	 "paths": {
+		"*":["./srs/*"]
+	 }
   },
   "ts-node": {
     "compilerOptions": {
