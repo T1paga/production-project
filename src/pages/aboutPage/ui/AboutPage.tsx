@@ -1,10 +1,5 @@
+const AboutPage = () => {
+  return <div>AboutPage</div>;
+};
 
-type Props = {}
-
-const AboutPage = (props: Props) => {
-  return (
-	 <div>AboutPage</div>
-  )
-}
-
-export default AboutPage
+export default AboutPage;

@@ -1,11 +1,5 @@
-import React from 'react'
+const MainPage = () => {
+  return <div>MainPage</div>;
+};
 
-type Props = {}
-
-const MainPage = (props: Props) => {
-  return (
-	 <div>MainPage</div>
-  )
-}
-
-export default MainPage
+export default MainPage;

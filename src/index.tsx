@@ -4,10 +4,10 @@ import ThemeProvider from './app/providers/ThemeProvider/ui/ThemeProvider';
 import App from './app/app';
 
 render(
-	<BrowserRouter>
-		<ThemeProvider>
-			<App/>
-		</ThemeProvider>
-	</BrowserRouter>,
+  <BrowserRouter>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>,
   document.getElementById('root'),
 );
