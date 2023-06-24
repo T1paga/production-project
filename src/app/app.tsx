@@ -5,17 +5,21 @@ import { Navbar } from 'widgets/Navbar';
 
 import './styles/index.scss';
 import { SideBar } from 'widgets/SideBar';
+import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const app = () => {
   const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <SideBar />
-        <AppRouter />
-      </div>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <SideBar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   );
 };
