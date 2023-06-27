@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 import styles from './SideBar.module.scss'
 import { useState } from 'react'
@@ -6,7 +6,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 
 interface SideBarProps {
-  className: string
+    className: string
 }
 
 export const SideBar = ({ className }: SideBarProps): JSX.Element => {

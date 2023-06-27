@@ -44,7 +44,9 @@ module.exports = {
         'no-underscore-dangle': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/space-before-function-paren': [0, 'always'],
-        'i18next/no-literal-string': ['warn', { markupOnly: true }]
+        'i18next/no-literal-string': ['warn', { markupOnly: true }],
+        'eol-last': 0,
+        '@typescript-eslint/quotes': 'off'
     },
     globals: {
         __IS_DEV__: true
