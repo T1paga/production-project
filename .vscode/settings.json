@@ -4,7 +4,8 @@
         "src/shared/config/i18n"
     ],
     "editor.insertSpaces": true,
-    "editor.autoIndent": "full"
+    "editor.autoIndent": "full",
+    "i18next.i18nPaths": "c:/Users/okrus/Desktop/Текущий проект/production-project/public/locales,c:/Users/okrus/Desktop/Текущий проект/production-project/src/shared/config/i18n"
 } // {
 //   "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
 //   "i18n-ally.keystyle": "nested",

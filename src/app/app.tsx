@@ -16,6 +16,7 @@ const app: FC = () => {
                 <Navbar className='' />
                 <div className="content-page">
                     <SideBar className='' />
+                    fdsdfs
                     <AppRouter />
                 </div>
             </Suspense>

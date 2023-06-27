@@ -5,7 +5,8 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'standard-with-typescript'
+        'standard-with-typescript',
+        'plugin:i18next/recommended'
     ],
     settings: {
         react: {
@@ -21,7 +22,8 @@ module.exports = {
         tsconfigRootDir: __dirname
     },
     plugins: [
-        'react'
+        'react',
+        'i18next'
     ],
     rules: {
         '@typescript-eslint/indent': 'off',
@@ -41,7 +43,8 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
-        '@typescript-eslint/space-before-function-paren': [0, 'always']
+        '@typescript-eslint/space-before-function-paren': [0, 'always'],
+        'i18next/no-literal-string': ['warn', { markupOnly: true }]
     },
     globals: {
         __IS_DEV__: true
