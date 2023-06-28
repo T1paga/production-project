@@ -46,7 +46,8 @@ module.exports = {
         '@typescript-eslint/space-before-function-paren': [0, 'always'],
         'i18next/no-literal-string': ['warn', { markupOnly: true }],
         'eol-last': 0,
-        '@typescript-eslint/quotes': 'off'
+        '@typescript-eslint/quotes': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn'
     },
     globals: {
         __IS_DEV__: true
