@@ -14,6 +14,12 @@ module.exports = {
         }
     },
     overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off'
+            }
+        }
     ],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -44,10 +50,16 @@ module.exports = {
         'no-underscore-dangle': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/space-before-function-paren': [0, 'always'],
-        'i18next/no-literal-string': ['warn', { markupOnly: true }],
         'eol-last': 0,
         '@typescript-eslint/quotes': 'off',
-        '@typescript-eslint/no-unused-vars': 'warn'
+        '@typescript-eslint/no-unused-vars': 'warn',
+        'i18next/no-literal-string': [
+            'warn',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid', 'to']
+            }
+        ]
     },
     globals: {
         __IS_DEV__: true
