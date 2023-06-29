@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useState } from 'react'
 import { Button } from 'shared/ui/Button/Button'
-import cls from './Sidebar.module.scss'
+import cls from './SideBar.module.scss'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 
