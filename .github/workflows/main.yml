@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '${{ matrix.node-version }}'
       - name: install modules
-        run: yarn install install
+        run: yarn install
       - name: build production project
         run: 'yarn run build:prod'
       - name: linting typescript
