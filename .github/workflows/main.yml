@@ -1,5 +1,6 @@
-name: 'linting, testing, building'
-on:
+@@ -1,31 +0,0 @@
+name: 'linting, tesing, building'
+'on':
   push:
     branches:
       - main
@@ -20,12 +21,12 @@ jobs:
         with:
           node-version: '${{ matrix.node-version }}'
       - name: install modules
-        run: yarn install
+        run: npm install
       - name: build production project
-        run: 'yarn run build:prod'
+        run: 'npm run build:prod'
       - name: linting typescript
-        run: 'yarn run lint:ts'
+        run: 'npm run lint:ts'
       - name: linting css
-        run: 'yarn run lint:scss'
+        run: 'npm run lint:scss'
       - name: unit testing
-        run: 'yarn run test:unit'
+        run: 'npm run test:unit'
