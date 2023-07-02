@@ -4,9 +4,10 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button'
 
 interface LangSwitcherProps {
 	className?: string
+	short?: boolean
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
 	const { t, i18n } = useTranslation()
 
 	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -21,7 +22,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 			// eslint-disable-next-line @typescript-eslint/no-misused-promises
 			onClick={toggle}
 		>
-			{t('Язык')}
+			{short ? t('Короткий язык') : t('Язык')}
 		</Button>
 	)
 }

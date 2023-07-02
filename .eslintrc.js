@@ -53,6 +53,7 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'@typescript-eslint/consistent-type-assertions': 'off',
 		'@typescript-eslint/explicit-function-return-type': 'off',
+		'no-unused-vars': ['error', { 'varsIgnorePattern': '^[A-Z_]+$' }],
 		'i18next/no-literal-string': [
 			'warn',
 			{
