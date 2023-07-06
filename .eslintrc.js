@@ -25,8 +25,14 @@ module.exports = {
 		sourceType: "module",
 		project: "./tsconfig.json"
 	},
-	plugins: ["react", "i18next"],
+	plugins: [
+		"react",
+		"i18next",
+		"react-hooks"
+	],
 	rules: {
+		"react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+		"react-hooks/exhaustive-deps": "error", // Checks effect dependencies
 		'@typescript-eslint/indent': 'off',
 		'react/jsx-indent': [2, "tab"],
 		'react/jsx-indent-props': [2, "tab"],
@@ -54,6 +60,7 @@ module.exports = {
 		'@typescript-eslint/consistent-type-assertions': 'off',
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'no-unused-vars': ['warn', { 'varsIgnorePattern': '^[A-Z_]+$' }],
+		'@typescript-eslint/no-confusing-void-expression': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{
