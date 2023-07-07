@@ -12,5 +12,7 @@
   "Главная": "Main",
   "О сайте": "About us",
   "Переключить": "Переключить",
-  "Login": "Login"
+  "Login": "Login",
+  "Input username": "Input username",
+  "Input password": "Input password"
 }
