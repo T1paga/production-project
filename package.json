@@ -109,10 +109,6 @@
 				"target": "chrome.app",
 				"preset": "iPhone 7"
 			}
-		},
-		"diffingEngine": "pixelmatch",
-		"pixelmatch": {
-			"threshold": 0.1
 		}
 	}
 }
