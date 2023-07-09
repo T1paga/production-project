@@ -61,6 +61,7 @@ module.exports = {
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'no-unused-vars': ['warn', { 'varsIgnorePattern': '^[A-Z_]+$' }],
 		'@typescript-eslint/no-confusing-void-expression': 'off',
+		'@typescript-eslint/prefer-nullish-coalescing': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{

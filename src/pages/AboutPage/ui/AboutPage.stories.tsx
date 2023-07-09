@@ -1,4 +1,4 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import AboutPage from './AboutPage'
@@ -11,7 +11,8 @@ export default {
 	}
 } as ComponentMeta<typeof AboutPage>
 
-const Template: ComponentStory<any> = (args) => <AboutPage {...args} />
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof AboutPage> = (args) => <AboutPage {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}

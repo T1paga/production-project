@@ -1,21 +1,21 @@
-import path from "path"
-import { type BuildPaths } from "../build/types/config"
-import type webpack from "webpack"
-import { buildCssLoader } from "../build/loaders/buildCssLoader"
+import { DefinePlugin } from 'webpack'
+import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
+import path from 'path'
+import { buildCssLoader } from '../build/loaders/buildCssLoader'
+import { type BuildPaths } from '../build/types/config'
 
-export default ({ config }: { config: webpack.Configuration }): any => {
+export default ({ config }: { config: webpack.Configuration }) => {
 	const paths: BuildPaths = {
 		build: '',
-		entry: '',
 		html: '',
+		entry: '',
 		src: path.resolve(__dirname, '..', '..', 'src')
 	}
-
 	config.resolve?.modules?.push(paths.src)
 	config.resolve?.extensions?.push('.ts', '.tsx')
 
-	config.module?.rules?.push(buildCssLoader(true))
-
+	// eslint-disable-next-line no-param-reassign
 	if (config?.module?.rules) {
 		config.module.rules = config.module.rules.map((rule: any) => {
 			if (String(rule.test).includes('svg')) {
@@ -25,10 +25,15 @@ export default ({ config }: { config: webpack.Configuration }): any => {
 		})
 	}
 
-	config.module?.rules?.push({
+	config?.module?.rules?.push({
 		test: /\.svg$/,
 		use: ['@svgr/webpack']
 	})
+	config?.module?.rules?.push(buildCssLoader(true))
+
+	config.plugins?.push(new DefinePlugin({
+		__IS_DEV__: true
+	}))
 
 	return config
 }

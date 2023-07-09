@@ -6,11 +6,11 @@ interface PortalProps {
 	element?: HTMLElement
 }
 
-export const Portal = (props: PortalProps): JSX.Element => {
+export const Portal = (props: PortalProps) => {
 	const {
 		children,
-		element
+		element = document.body
 	} = props
 
-	return createPortal(children, element ?? document.body)
+	return createPortal(children, element)
 }

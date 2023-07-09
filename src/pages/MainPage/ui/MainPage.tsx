@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const MainPage = () => {
+const MainPage = (props: any) => {
 	const { t } = useTranslation()
+	const [value, setValue] = useState('')
+
+	const onChange = (val: string) => {
+		setValue(val)
+	}
 
 	return (
 		<div>
