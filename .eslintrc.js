@@ -62,6 +62,8 @@ module.exports = {
 		'no-unused-vars': ['warn', { 'varsIgnorePattern': '^[A-Z_]+$' }],
 		'@typescript-eslint/no-confusing-void-expression': 'off',
 		'@typescript-eslint/prefer-nullish-coalescing': 'off',
+		'@typescript-eslint/ban-ts-comment': 'off',
+		'@typescript-eslint/prefer-ts-expect-error': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{

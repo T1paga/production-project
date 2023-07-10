@@ -61,13 +61,13 @@ export const Modal = (props: ModalProps) => {
 		}
 
 		return () => {
-			clearTimeout(timerRef.current)
+			if (timerRef.current) clearTimeout(timerRef.current)
 			window.removeEventListener('keydown', onKeyDown)
 		}
 	}, [isOpen, onKeyDown])
 
 	const mods: Record<string, boolean> = {
-		[cls.opened]: isOpen,
+		[cls.opened]: isOpen ?? false,
 		[cls.isClosing]: isClosing
 	}
 
@@ -77,7 +77,7 @@ export const Modal = (props: ModalProps) => {
 
 	return (
 		<Portal>
-			<div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+			<div className={classNames(cls.Modal, mods, [className ?? '', theme, 'app_modal'])}>
 				<div className={cls.overlay} onClick={closeHandler}>
 					<div
 						className={cls.content}

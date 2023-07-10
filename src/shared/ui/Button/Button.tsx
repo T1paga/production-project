@@ -36,16 +36,16 @@ export const Button: FC<ButtonProps> = (props) => {
 	} = props
 
 	const mods: Record<string, boolean> = {
-		[cls[theme]]: true,
-		[cls.square]: square,
+		[cls[theme ?? '']]: true,
+		[cls.square]: square ?? false,
 		[cls[size]]: true,
-		[cls.disabled]: disabled
+		[cls.disabled]: disabled ?? false
 	}
 
 	return (
 		<button
 			type="button"
-			className={classNames(cls.Button, mods, [className])}
+			className={classNames(cls.Button, mods, [className ?? ''])}
 			disabled={disabled}
 			{...otherProps}
 		>
