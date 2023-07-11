@@ -43,14 +43,10 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
 				return
 			}
 
-			console.log('do', keysToRemove)
-
 			delete reducers[key]
 
 			keysToRemove.push(key)
 			combinedReducer = combineReducers(reducers)
-
-			console.log('posle', keysToRemove)
 		}
 	}
 }

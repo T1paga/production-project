@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const MainPage = (props: any) => {
+const MainPage = memo((props: any) => {
 	const { t } = useTranslation()
 	const [value, setValue] = useState('')
 
@@ -14,6 +14,6 @@ const MainPage = (props: any) => {
 			{t('Главная страница')}
 		</div>
 	)
-}
+})
 
 export default MainPage

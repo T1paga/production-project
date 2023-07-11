@@ -64,6 +64,8 @@ module.exports = {
 		'@typescript-eslint/prefer-nullish-coalescing': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
+		'@typescript-eslint/await-thenable': 'off',
+		'@typescript-eslint/no-misused-promises': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{
