@@ -66,6 +66,7 @@ module.exports = {
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
 		'@typescript-eslint/await-thenable': 'off',
 		'@typescript-eslint/no-misused-promises': 'off',
+		'@typescript-eslint/no-invalid-void-type': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{
@@ -75,6 +76,7 @@ module.exports = {
 		]
 	},
 	globals: {
-		__IS_DEV__: true
+		__IS_DEV__: true,
+		__API__: true
 	}
 };

@@ -18,7 +18,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
 
 	return (
 		<Button
-			className={classNames('', {}, [className ?? ''])}
+			className={classNames('', {}, [className])}
 			theme={ButtonTheme.CLEAR}
 			// eslint-disable-next-line @typescript-eslint/no-misused-promises
 			onClick={toggle}

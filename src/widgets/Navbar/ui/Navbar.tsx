@@ -31,7 +31,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	if (authData) {
 		return (
-			<div className={classNames(cls.Navbar, {}, [className ?? ''])}>
+			<div className={classNames(cls.Navbar, {}, [className])}>
 				<Button
 					theme={ButtonTheme.CLEAR_INVERTED}
 					className={cls.links}
@@ -44,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	}
 
 	return (
-		<div className={classNames(cls.Navbar, {}, [className ?? ''])}>
+		<div className={classNames(cls.Navbar, {}, [className])}>
 			<Button
 				theme={ButtonTheme.CLEAR_INVERTED}
 				className={cls.links}

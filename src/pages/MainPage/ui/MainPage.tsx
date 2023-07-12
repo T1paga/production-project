@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const MainPage = memo((props: any) => {
+const MainPage = memo(() => {
 	const { t } = useTranslation()
 	const [value, setValue] = useState('')
 

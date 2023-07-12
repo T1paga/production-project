@@ -16,7 +16,7 @@ export const PageError = ({ className }: PageErrorProps): JSX.Element => {
 	}
 
 	return (
-		<div className={classNames(styles.PageError, {}, [className ?? ''])}>
+		<div className={classNames(styles.PageError, {}, [className])}>
 			<p>{t('Произошла непредвиденная ошибка')}</p>
 			<Button onClick={reloadPage} className="" theme={ButtonTheme.CLEAR}>{t('Обновить страницу')}</Button>
 		</div>
