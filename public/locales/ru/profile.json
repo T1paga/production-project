@@ -1,7 +1,13 @@
 {
-  "User profile": "Профиль пользователя",
-  "edit": "редактировать",
-  "your name": "Ваше имя",
-  "profile": {},
-  "your lastname": "Ваша фамилия"
+	"User profile": "Профиль пользователя",
+	"edit": "редактировать",
+	"your name": "Ваше имя",
+	"An error occurred while loading": "Произошла ошибка при загрузке",
+	"your lastname": "Ваша фамилия",
+	"your age": "ваш возраст",
+	"your city": "ваш город",
+	"cancel": "отмена",
+	"save": "сохранить",
+	"your username": "Имя пользователя",
+	"your avatar": "Ваша фотография"
 }

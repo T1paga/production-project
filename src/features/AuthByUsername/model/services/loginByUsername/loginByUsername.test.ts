@@ -55,7 +55,6 @@ describe('loginByUsername', () => {
 			data: userValue
 		}))
 
-
 		const result = await thunk.callThunk({ password: '123', username: '123' })
 
 		expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))

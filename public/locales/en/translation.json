@@ -2,6 +2,7 @@
 	"Тестовый пример": "Test example",
 	"Перевод": "Translate",
 	"Главная страница": "Main page",
+	"Профиль": "Profile",
 	"Язык": "English",
 	"новый перевод": "новый перевод",
 	"Страница не найдена": "Page not found",
@@ -19,6 +20,8 @@
 	"Введите пароль": "Enter password",
 	"Форма авторизации": "Auth form",
 	"Вы ввели неверный логин или пароль": "Uncorrect username or password",
-	"Выйти": "Выйти",
-	"Profile page": "Profile Page"
+	"Выйти": "Exit",
+	"Profile page": "Profile Page",
+	"specify the currency": "specify the currency",
+	"enter your country": "enter your country"
 }

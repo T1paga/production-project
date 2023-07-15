@@ -2,5 +2,13 @@
 	"User profile": "User profile",
 	"edit": "edit",
 	"your name": "your name",
-	"your lastname": "your lastname"
+	"your lastname": "your lastname",
+	"An error occurred while loading": "An error occurred while loading",
+	"try refreshing the page": "try refreshing the page",
+	"cancel": "cancel",
+	"save": "save",
+	"your age": "your age",
+	"your city": "your city",
+	"your username": "your username",
+	"your avatar": "your avatar"
 }
