@@ -9,5 +9,10 @@
 	"cancel": "отмена",
 	"save": "сохранить",
 	"your username": "Имя пользователя",
-	"your avatar": "Ваша фотография"
+	"your avatar": "Ваша фотография",
+	"incorrect_age": "некорректный возраст",
+	"incorrect_country": "неверная страна",
+	"incorrect_user_data": "Имя и фамилия обязательны",
+	"no_data": "данные не указаны",
+	"server_error": "Ошибка сервера"
 }

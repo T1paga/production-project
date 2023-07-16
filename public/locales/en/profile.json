@@ -10,5 +10,10 @@
 	"your age": "your age",
 	"your city": "your city",
 	"your username": "your username",
-	"your avatar": "your avatar"
+	"your avatar": "your avatar",
+	"incorrect_age": "incorrect age",
+	"incorrect_country": "incorrect country",
+	"incorrect_user_data": "incorrect user data",
+	"no_data": "no data",
+	"server_error": "server error"
 }

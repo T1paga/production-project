@@ -4,13 +4,16 @@ import styles from './ProfilePage.module.scss'
 import { memo, useCallback, useEffect } from 'react'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
-	ProfileCard, fetchProfileData, getProfileError, getProfileForm,
-	getProfileIsLoading, getProfileReadonly, profileActions, profileReducer
+	ProfileCard, ValidateProfileError, fetchProfileData, getProfileError, getProfileForm,
+	getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer
 } from 'entities/Profile'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { type Currency } from 'entities/Currency'
 import { type Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 const reducers: ReducersList = {
 	profile: profileReducer
@@ -21,15 +24,27 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps): JSX.Element => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
+	const { t } = useTranslation('profile')
 
 	const formData = useSelector(getProfileForm)
 	const error = useSelector(getProfileError)
 	const isLoading = useSelector(getProfileIsLoading)
 	const readonly = useSelector(getProfileReadonly)
+	const validateErrors = useSelector(getProfileValidateErrors)
+
+	// const validateErrorTranslate = {
+	// 	[ValidateProfileError.INCORRECT_AGE]: t('incorrect_age'),
+	// 	[ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect_country'),
+	// 	[ValidateProfileError.INCORRECT_USER_DATA]: t('incorrect_user_data'),
+	// 	[ValidateProfileError.NO_DATA]: t('no_data'),
+	// 	[ValidateProfileError.SERVER_ERROR]: t('server_error')
+	// }
 
 	useEffect(() => {
-		dispatch(fetchProfileData())
+		if (__PROJECT__ !== 'storybook') {
+			void dispatch(fetchProfileData())
+		}
 	}, [dispatch])
 
 	const onChangeFirstname = useCallback((value?: string) => {
@@ -68,6 +83,9 @@ const ProfilePage = memo(({ className }: ProfilePageProps): JSX.Element => {
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div className={classNames(styles.ProfilePage, {}, [className])}>
 				<ProfilePageHeader />
+				{validateErrors?.length && validateErrors.map(error => {
+					return <Text theme={TextTheme.ERROR} text={error} key={error} />
+				})}
 				<ProfileCard
 					data={formData}
 					isLoading={isLoading}
