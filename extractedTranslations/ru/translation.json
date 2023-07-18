@@ -1,6 +1,8 @@
 {
   "": "",
+  "A": "A",
   "An error occurred while loading": "An error occurred while loading",
+  "Article not found": "Article not found",
   "In": "In",
   "Incorrect_age": "Incorrect_age",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
@@ -46,6 +48,7 @@
   "Обновить страницу": "Обновить страницу",
   "Переключить": "Переключить",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "С": "С",
   "Страница не найдена": "Страница не найдена",
   "Укажите страну": "Укажите страну",
   "Форма авторизации": "Форма авторизации",

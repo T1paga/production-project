@@ -67,6 +67,7 @@ module.exports = {
 		'@typescript-eslint/await-thenable': 'off',
 		'@typescript-eslint/no-misused-promises': 'off',
 		'@typescript-eslint/no-invalid-void-type': 'off',
+		'@typescript-eslint/no-floating-promises': 'off',
 		'i18next/no-literal-string': [
 			'warn',
 			{
