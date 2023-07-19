@@ -3,6 +3,7 @@
   "A": "A",
   "An error occurred while loading": "An error occurred while loading",
   "Article not found": "Article not found",
+  "Comments": "Comments",
   "In": "In",
   "Incorrect_age": "Incorrect_age",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
@@ -10,6 +11,7 @@
       "": ""
     }
   },
+  "No comments": "No comments",
   "Profile page": "Profile page",
   "User profile": "User profile",
   "cancel": "cancel",
@@ -43,12 +45,14 @@
   "Выйти": "Выйти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
+  "Комментарии": "Комментарии",
   "О сайте": "О сайте",
   "О сайте123123": "О сайте123123",
   "Обновить страницу": "Обновить страницу",
   "Переключить": "Переключить",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
   "С": "С",
+  "Статья не найдена": "Статья не найдена",
   "Страница не найдена": "Страница не найдена",
   "Укажите страну": "Укажите страну",
   "Форма авторизации": "Форма авторизации",
