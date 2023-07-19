@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import styles from './ProfilePage.module.scss'
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
-	ProfileCard, ValidateProfileError, fetchProfileData, getProfileError, getProfileForm,
+	ProfileCard, fetchProfileData, getProfileError, getProfileForm,
 	getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer
 } from 'entities/Profile'
 import { useSelector } from 'react-redux'
@@ -14,6 +14,9 @@ import { type Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useParams } from 'react-router-dom'
+import { ifError } from 'assert'
 
 const reducers: ReducersList = {
 	profile: profileReducer
@@ -32,6 +35,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps): JSX.Element => {
 	const isLoading = useSelector(getProfileIsLoading)
 	const readonly = useSelector(getProfileReadonly)
 	const validateErrors = useSelector(getProfileValidateErrors)
+	const { id } = useParams<{ id: string }>()
 
 	// const validateErrorTranslate = {
 	// 	[ValidateProfileError.INCORRECT_AGE]: t('incorrect_age'),
@@ -41,11 +45,11 @@ const ProfilePage = memo(({ className }: ProfilePageProps): JSX.Element => {
 	// 	[ValidateProfileError.SERVER_ERROR]: t('server_error')
 	// }
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			void dispatch(fetchProfileData())
+	useInitialEffect(() => {
+		if (id) {
+			dispatch(fetchProfileData(id))
 		}
-	}, [dispatch])
+	})
 
 	const onChangeFirstname = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ first: value || '' }))
