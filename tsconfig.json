@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"strict": true,
 		"outDir": "./dist/",
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"module": "ESNext",
 		"target": "es5",
 		"jsx": "react-jsx",

@@ -13,6 +13,11 @@ const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetail
 const article: Article = {
 	id: "1",
 	title: "Javascript news",
+	user: {
+		id: '1',
+		username: 'Tipaga',
+		avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png'
+	},
 	subtitle: "Р§С‚Рѕ РЅРѕРІРѕРіРѕ РІ JS Р·Р° 2022 РіРѕРґ?",
 	img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
 	views: 1022,
