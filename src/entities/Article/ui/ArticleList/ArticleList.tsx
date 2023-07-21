@@ -32,11 +32,11 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 
 	const { t } = useTranslation()
 
-	if (isLoading) {
-		return <div className={classNames(styles.ArticleList, {}, [className ?? '', styles[view ?? '']])}>
-			{getSkeletons(view)}
-		</div>
-	}
+	// if (isLoading) {
+	// 	return <div className={classNames(styles.ArticleList, {}, [className ?? '', styles[view ?? '']])}>
+	// 		{getSkeletons(view)}
+	// 	</div>
+	// }
 
 	const renderArticle = (article: Article) => {
 		return <ArticleListItem
@@ -53,6 +53,7 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 				? articles.map(renderArticle)
 				: <></>
 			}
+			{isLoading && getSkeletons(view)}
 		</div>
 	)
 }

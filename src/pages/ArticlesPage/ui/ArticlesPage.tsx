@@ -9,7 +9,9 @@ import { useSelector } from 'react-redux'
 import styles from './ArticlesPage.module.scss'
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList'
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlesPageSlice'
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors'
+import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum, getArticlesPageView } from '../model/selectors/articlesPageSelectors'
+import { Page } from 'shared/ui/Page/Page'
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 
 interface ArticlesPageProps {
 	className?: string
@@ -28,9 +30,15 @@ const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
 	const error = useSelector(getArticlesPageError)
 	const view = useSelector(getArticlesPageView)
 
+	const onLoadNextPart = useCallback(() => {
+		dispatch(fetchNextArticlesPage())
+	}, [dispatch])
+
 	useInitialEffect(() => {
-		dispatch(fetchArticlesList())
 		dispatch(articlesPageActions.initState())
+		dispatch(fetchArticlesList({
+			page: 1
+		}))
 	})
 
 	const onChangeView = useCallback((view: ArticleView) => {
@@ -39,14 +47,14 @@ const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={classNames(styles.ArticlesPage, {}, [className ?? ''])}>
+			<Page onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className ?? ''])}>
 				<ArticleViewSelector view={view} onViewClick={onChangeView} />
 				<ArticleList
 					isLoading={isLoading}
 					view={view}
 					articles={articles}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	)
 }

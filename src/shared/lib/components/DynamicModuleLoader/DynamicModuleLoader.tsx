@@ -42,7 +42,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props: Dynamic
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	return <div>
+	return <>
 		{children}
-	</div>
+	</>
 }
