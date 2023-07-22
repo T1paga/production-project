@@ -19,7 +19,7 @@ import {
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices//articleDetailsCommentSlice'
 import { getArticleCommentsIsloading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../../ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticleDetailsPageProps {
 	className?: string

@@ -13,10 +13,10 @@ export function useInfiniteScroll({ callback, wrapperRef, triggerRef }: UseInfin
 		const wrapperElement = wrapperRef.current
 		const triggerElement = triggerRef.current
 
-		if (callback) {
+		if (callback && wrapperElement && triggerElement) {
 			const options = {
 				root: wrapperElement,
-				rootMargin: '0px',
+				rootMargin: '5px',
 				threshold: 1.0
 			}
 
