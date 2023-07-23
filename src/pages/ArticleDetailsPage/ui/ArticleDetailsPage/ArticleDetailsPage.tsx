@@ -10,9 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import styles from './ArticleDetailsPage.module.scss'
 import { AddCommentForm } from 'features/AddCommentForm'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Page } from 'widgets/Page/Page'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 import {
 	fetchCommentsByArticleId
@@ -24,6 +22,7 @@ import { getArticleRecommendations } from '../../model/slices/articleDetailsPage
 import { getArticleRecommendationsIsloading } from '../../model/selectors/recommendations'
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { articleDetailsPageReducer } from '../../model/slices'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
 	className?: string
@@ -38,16 +37,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	const { t } = useTranslation()
 	const { id } = useParams<{ id: string }>()
 	const dispatch = useDispatch()
-	const navigate = useNavigate()
 
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsIsLoading = useSelector(getArticleCommentsIsloading)
 	const recommendations = useSelector(getArticleRecommendations.selectAll)
 	const recommendationsIsLoading = useSelector(getArticleRecommendationsIsloading)
-
-	const onBackToList = useCallback(() => {
-		navigate(RoutePath.articles)
-	}, [navigate])
 
 	const onSendComment = useCallback((text: string) => {
 		dispatch(addCommentForArticle(text))
@@ -69,7 +63,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>Назад к списку</Button>
+				<ArticleDetailsPageHeader />
 				<ArticleDetails id={id} />
 				<Text
 					size={TextSize.L}
