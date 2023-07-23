@@ -50,7 +50,7 @@ export const Page = (props: PageProps): JSX.Element => {
 			className={classNames(styles.Page, {}, [className ?? ''])}
 		>
 			{children}
-			<div ref={triggerRef}></div>
+			{onScrollEnd ? <div className={styles.trigger} ref={triggerRef}></div> : <></>}
 		</section>
 	)
 }

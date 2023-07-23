@@ -8,10 +8,12 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/Dy
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import styles from './ArticlesPage.module.scss'
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlesPageSlice'
-import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors'
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice'
+import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
+import { useSearchParams } from 'react-router-dom'
 
 interface ArticlesPageProps {
 	className?: string
@@ -27,26 +29,24 @@ const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
 	const articles = useSelector(getArticles.selectAll)
 
 	const isLoading = useSelector(getArticlesPageIsLoading)
-	const error = useSelector(getArticlesPageError)
 	const view = useSelector(getArticlesPageView)
+	const error = useSelector(getArticlesPageError)
+	const [searchParams] = useSearchParams()
 
 	const onLoadNextPart = useCallback(() => {
 		dispatch(fetchNextArticlesPage())
 	}, [dispatch])
 
 	useInitialEffect(() => {
-		dispatch(initArticlesPage())
+		dispatch(initArticlesPage(searchParams))
 	})
-
-	const onChangeView = useCallback((view: ArticleView) => {
-		dispatch(articlesPageActions.setView(view))
-	}, [dispatch])
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
 			<Page onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className ?? ''])}>
-				<ArticleViewSelector view={view} onViewClick={onChangeView} />
+				<ArticlesPageFilters />
 				<ArticleList
+					className={styles.list}
 					isLoading={isLoading}
 					view={view}
 					articles={articles}

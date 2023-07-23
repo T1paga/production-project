@@ -1,32 +1,36 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails, ArticleList } from 'entities/Article'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import { CommentList } from 'entities/Comment'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useDispatch, useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import cls from './ArticleDetailsPage.module.scss'
+import styles from './ArticleDetailsPage.module.scss'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Page } from 'widgets/Page/Page'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 import {
 	fetchCommentsByArticleId
 } from '../../../ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices//articleDetailsCommentSlice'
+import { getArticleComments } from '../../model/slices//articleDetailsCommentSlice'
 import { getArticleCommentsIsloading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../../ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle'
-import { Page } from 'widgets/Page/Page'
+import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice'
+import { getArticleRecommendationsIsloading } from '../../model/selectors/recommendations'
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
+import { articleDetailsPageReducer } from '../../model/slices'
 
 interface ArticleDetailsPageProps {
 	className?: string
 }
 
 const reducers: ReducersList = {
-	articleDetailsComments: articleDetailsCommentsReducer
+	articleDetailsPage: articleDetailsPageReducer
 }
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -38,6 +42,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsIsLoading = useSelector(getArticleCommentsIsloading)
+	const recommendations = useSelector(getArticleRecommendations.selectAll)
+	const recommendationsIsLoading = useSelector(getArticleRecommendationsIsloading)
 
 	const onBackToList = useCallback(() => {
 		navigate(RoutePath.articles)
@@ -49,11 +55,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
 	useInitialEffect(() => {
 		dispatch(fetchCommentsByArticleId(id))
+		dispatch(fetchArticleRecommendations())
 	})
 
 	if (!id) {
 		return (
-			<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+			<Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
 				{t('Статья не найдена')}
 			</Page>
 		)
@@ -61,10 +68,25 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+			<Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
 				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>Назад к списку</Button>
 				<ArticleDetails id={id} />
-				<Text className={cls.commentTitle} title={t('Комментарии')} />
+				<Text
+					size={TextSize.L}
+					className={styles.CommentTitle}
+					title={t('Рекомендуем')}
+				/>
+				<ArticleList
+					articles={recommendations}
+					isLoading={recommendationsIsLoading}
+					className={styles.recommendations}
+					target='_blank'
+				/>
+				<Text
+					size={TextSize.L}
+					className={styles.CommentTitle}
+					title={t('Комментарии')}
+				/>
 				<AddCommentForm onSendComment={onSendComment} />
 				<CommentList
 					isLoading={commentsIsLoading}
