@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import { type HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
+import { type HTMLAttributeAnchorTarget, memo } from 'react'
 
 import styles from './ArticleListItem.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -10,9 +10,9 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 interface ArticleListItemProps {
 	className?: string

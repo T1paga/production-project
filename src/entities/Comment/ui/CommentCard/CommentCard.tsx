@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
 
 import styles from './CommentCard.module.scss'
-import type { Comment } from 'entities/Comment/model/types/comment'
+import type { Comment } from '../../model/types/comment'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Text } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'

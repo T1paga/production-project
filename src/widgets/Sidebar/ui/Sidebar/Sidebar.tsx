@@ -4,7 +4,7 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
-import cls from './Sidebar.module.scss'
+import styles from './Sidebar.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
@@ -31,26 +31,26 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	return (
 		<menu
 			data-testid="sidebar"
-			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+			className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
 		>
 			<Button
 				data-testid="sidebar-toggle"
 				onClick={onToggle}
-				className={cls.collapseBtn}
+				className={styles.collapseBtn}
 				theme={ButtonTheme.BACKGROUND_INVERTED}
 				size={ButtonSize.L}
 				square
 			>
 				{collapsed ? '>' : '<'}
 			</Button>
-			<div className={cls.items}>
+			<div className={styles.items}>
 				{itemsList}
 			</div>
-			<div className={cls.switchers}>
+			<div className={styles.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher
 					short={collapsed}
-					className={cls.lang}
+					className={styles.lang}
 				/>
 			</div>
 		</menu>

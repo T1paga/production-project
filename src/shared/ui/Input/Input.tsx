@@ -1,6 +1,6 @@
 import { type Mods, classNames } from 'shared/lib/classNames/classNames'
 import { type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
-import cls from './Input.module.scss'
+import styles from './Input.module.scss'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
@@ -53,23 +53,23 @@ export const Input = memo((props: InputProps) => {
 	}
 
 	const mods: Mods = {
-		[cls.readonly]: readonly
+		[styles.readonly]: readonly
 	}
 
 	return (
-		<div className={classNames(cls.InputWrapper, {}, [className])}>
+		<div className={classNames(styles.InputWrapper, {}, [className])}>
 			{placeholder && (
-				<div className={cls.placeholder}>
+				<div className={styles.placeholder}>
 					{`${placeholder}>`}
 				</div>
 			)}
-			<div className={cls.caretWrapper}>
+			<div className={styles.caretWrapper}>
 				<input
 					ref={ref}
 					type={type}
 					value={value}
 					onChange={onChangeHandler}
-					className={cls.input}
+					className={styles.input}
 					onFocus={onFocus}
 					onBlur={onBlur}
 					onSelect={onSelect}
@@ -78,7 +78,7 @@ export const Input = memo((props: InputProps) => {
 				/>
 				{isCaretVisible && (
 					<span
-						className={cls.caret}
+						className={styles.caret}
 						style={{ left: `${caretPosition * 9}px` }}
 					/>
 				)}

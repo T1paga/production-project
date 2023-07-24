@@ -1,6 +1,6 @@
 import { type Mods, classNames } from 'shared/lib/classNames/classNames'
-import { memo, type ButtonHTMLAttributes, type FC } from 'react'
-import cls from './Button.module.scss'
+import { memo, type ButtonHTMLAttributes } from 'react'
+import styles from './Button.module.scss'
 
 export enum ButtonTheme {
 	CLEAR = 'clear',
@@ -37,16 +37,16 @@ export const Button = memo((props: ButtonProps) => {
 	} = props
 
 	const mods: Mods = {
-		[cls[theme]]: true,
-		[cls.square]: square,
-		[cls[size]]: true,
-		[cls.disabled]: disabled
+		[styles[theme]]: true,
+		[styles.square]: square,
+		[styles[size]]: true,
+		[styles.disabled]: disabled
 	}
 
 	return (
 		<button
 			type="button"
-			className={classNames(cls.Button, mods, [className])}
+			className={classNames(styles.Button, mods, [className])}
 			disabled={disabled}
 			{...otherProps}
 		>

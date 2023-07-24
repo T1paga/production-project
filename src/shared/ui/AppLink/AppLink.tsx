@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Link, type LinkProps } from 'react-router-dom'
 import { memo, type ReactNode } from 'react'
-import cls from './AppLink.module.scss'
+import styles from './AppLink.module.scss'
 
 export enum AppLinkTheme {
 	PRIMARY = 'primary',
@@ -27,7 +27,7 @@ export const AppLink = memo((props: AppLinkProps) => {
 	return (
 		<Link
 			to={to}
-			className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
+			className={classNames(styles.AppLink, { [styles[theme]]: true }, [className])}
 			{...otherProps}
 		>
 			{children}

@@ -26,6 +26,7 @@ module.exports = {
 		project: "./tsconfig.json"
 	},
 	plugins: [
+		"ulbi-tv-plugin",
 		"react",
 		"i18next",
 		"react-hooks"
@@ -74,7 +75,8 @@ module.exports = {
 				markupOnly: true,
 				ignoreAttribute: ['data-testid', 'to']
 			}
-		]
+		],
+		'ulbi-tv-plugin/path-checker': 'error'
 	},
 	globals: {
 		__IS_DEV__: true,

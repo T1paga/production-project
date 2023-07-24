@@ -11,7 +11,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
-import cls from './LoginForm.module.scss'
+import styles from './LoginForm.module.scss'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
@@ -51,27 +51,27 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-			<div className={classNames(cls.LoginForm, {}, [className])}>
+			<div className={classNames(styles.LoginForm, {}, [className])}>
 				<Text title={t('Форма авторизации')} />
 				{error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
 				<Input
 					autofocus
 					type="text"
-					className={cls.input}
+					className={styles.input}
 					placeholder={t('Введите username')}
 					onChange={onChangeUsername}
 					value={username}
 				/>
 				<Input
 					type="text"
-					className={cls.input}
+					className={styles.input}
 					placeholder={t('Введите пароль')}
 					onChange={onChangePassword}
 					value={password}
 				/>
 				<Button
 					theme={ButtonTheme.OUTLINE}
-					className={cls.loginBtn}
+					className={styles.loginBtn}
 					onClick={onLoginClick}
 					disabled={isLoading}
 				>

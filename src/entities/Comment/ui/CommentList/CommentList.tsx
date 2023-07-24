@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
 
 import styles from './CommentList.module.scss'
-import { type Comment } from 'entities/Comment/model/types/comment'
+import { type Comment } from '../../model/types/comment'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { CommentCard } from '../CommentCard/CommentCard'
