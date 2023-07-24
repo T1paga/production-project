@@ -10,6 +10,7 @@ import { getAddCommentFormError, getAddCommentFormText } from '../../model/selec
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from 'shared/ui/Stack'
 
 export interface AddCommentFormProps {
 	className?: string
@@ -38,7 +39,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps):
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={classNames(styles.AddCommentForm, {}, [className ?? ''])}>
+			<HStack justify='between' max className={classNames(styles.AddCommentForm, {}, [className ?? ''])}>
 				<Input
 					className={styles.input}
 					onChange={onCommentTextChange}
@@ -46,7 +47,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps):
 					value={text}
 				/>
 				<Button onClick={onSendHandler}>Отправить</Button>
-			</div>
+			</HStack>
 		</DynamicModuleLoader>
 	)
 }
