@@ -46,7 +46,7 @@ export const Page = (props: PageProps): JSX.Element => {
 	}, 500)
 
 	return (
-		<section
+		<main
 			onScroll={onScroll}
 			ref={wrapperRef}
 			className={classNames(styles.Page, {}, [className ?? ''])}
@@ -54,6 +54,6 @@ export const Page = (props: PageProps): JSX.Element => {
 		>
 			{children}
 			{onScrollEnd ? <div className={styles.trigger} ref={triggerRef}></div> : <></>}
-		</section>
+		</main>
 	)
 }
