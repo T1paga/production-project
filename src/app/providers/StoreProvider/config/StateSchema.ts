@@ -3,18 +3,20 @@ import type { NavigateOptions, To } from 'react-router-dom'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type CounterSchema } from 'entities/Counter'
-import { type ProfileSchema } from 'entities/Profile'
 import { type UserSchema } from 'entities/User'
 import { type AddCommentFormSchema } from 'features/AddCommentForm'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
 import { type UISchema } from 'features/UI'
+import { type rtkApi } from 'shared/api/rtkApi'
+import { type ProfileSchema } from 'features/editableProfileCard'
 
 export interface StateSchema {
 	counter: CounterSchema
 	user: UserSchema
 	ui: UISchema
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
 	// Асинхронные редюсеры
 	loginForm?: LoginSchema

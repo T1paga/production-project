@@ -1,6 +1,8 @@
 /build
+/scripts
 node_modules
 .idea
+.eslintignore
 /storybook-static
 .loki/report.html
 .loki/report.json

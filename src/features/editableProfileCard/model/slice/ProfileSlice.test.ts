@@ -1,7 +1,6 @@
 import {
-	profileActions, profileReducer, type ProfileSchema, updateProfileData
+	profileActions, profileReducer, type ProfileSchema, updateProfileData, ValidateProfileError
 } from '../../index'
-import { ValidateProfileError } from '../../model/types/profile'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 

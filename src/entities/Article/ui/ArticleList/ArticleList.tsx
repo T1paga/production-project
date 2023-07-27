@@ -55,8 +55,6 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 	const rowRenderer = ({
 		index, isScrolling, isVisible, key, style
 	}: ListRowProps) => {
-		console.log('render')
-
 		const items = []
 		const fromIndex = index * itemsPerRow
 		const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)
@@ -87,7 +85,6 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 
 	return (
 		<WindowScroller
-			onScroll={() => console.log('scroll')}
 			scrollElement={document.getElementById(PAGE_ID) as Element}
 		>
 			{({

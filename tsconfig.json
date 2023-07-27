@@ -35,5 +35,8 @@
 		"./config/**/*.tsx",
 		"./config/**/*.ts",
 		"./webpack.config.ts",
+	],
+	"exclude": [
+		"./scripts//**/*.js"
 	]
 }

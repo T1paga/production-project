@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { ValidateProfileError } from './../../types/profile'
 import { updateProfileData } from "./updateProfileData"
 import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/testAsyncThunk"
 import { Country } from "entities/Country"
 import { Currency } from "entities/Currency"
+import { ValidateProfileError } from "../../types/editableProfileCardSchema"
 
 const data = {
 	username: 'admin',
