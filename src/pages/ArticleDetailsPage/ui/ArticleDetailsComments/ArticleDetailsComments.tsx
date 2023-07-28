@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import { memo, useCallback } from 'react'
+import { Suspense, memo, useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { Text, TextSize } from 'shared/ui/Text/Text'
@@ -16,7 +16,7 @@ import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsCommentsProps {
 	className?: string
-	id: string
+	id?: string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps): JSX.Element => {

@@ -15,10 +15,6 @@ interface ProfilePageProps {
 const ProfilePage = memo(({ className }: ProfilePageProps): JSX.Element => {
 	const { id } = useParams<{ id: string }>()
 
-	if (!id) {
-		return <Text text={'Профиль не найден'} />
-	}
-
 	return (
 		<Page className={classNames(styles.ProfilePage, {}, [className])}>
 			<VStack gap='16' max>

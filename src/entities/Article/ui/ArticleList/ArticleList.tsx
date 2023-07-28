@@ -99,6 +99,7 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 				scrollTop
 			}) => (
 				<div
+					// @ts-ignore
 					ref={registerChild}
 					className={classNames(styles.ArticleList, {}, [className ?? '', styles[view ?? '']])}
 				>
