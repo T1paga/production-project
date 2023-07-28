@@ -1,6 +1,7 @@
 {
   "": "",
   "A": "A",
+  "Admin panel page": "Admin panel page",
   "An error occurred while loading": "An error occurred while loading",
   "Article not found": "Article not found",
   "In": "In",
@@ -37,6 +38,7 @@
   "your lastname": "your lastname",
   "your name": "your name",
   "your username": "your username",
+  "Админка": "",
   "Введите username": "Введите username",
   "Введите пароль": "Введите пароль",
   "Войти": "Войти",
@@ -50,6 +52,7 @@
   "Обновить страницу": "Обновить страницу",
   "Переключить": "Переключить",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Профиль": "",
   "Рек": "Рек",
   "Рекомендуем": "Рекомендуем",
   "С": "С",
