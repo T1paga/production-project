@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent-props */
 import { classNames } from 'shared/lib/classNames/classNames'
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
 
@@ -16,6 +17,7 @@ interface ArticleListProps {
 	isLoading?: boolean
 	view?: ArticleView
 	target?: HTMLAttributeAnchorTarget
+	virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -32,7 +34,8 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 		articles = [],
 		isLoading,
 		view = ArticleView.SMALL,
-		target
+		target,
+		virtualized = true
 	} = props
 
 	const { t } = useTranslation()
@@ -99,17 +102,32 @@ export const ArticleList = memo((props: ArticleListProps): JSX.Element => {
 					ref={registerChild}
 					className={classNames(styles.ArticleList, {}, [className ?? '', styles[view ?? '']])}
 				>
-					<List
-						height={height ?? 700}
-						rowCount={rowCount}
-						rowHeight={isBig ? 700 : 330}
-						rowRenderer={rowRenderer}
-						width={width ? width - 80 : 700}
-						autoHeight
-						onScroll={onChildScroll}
-						isScrolling={isScrolling}
-						scrollTop={scrollTop}
-					/>
+					{virtualized
+						? (
+							<List
+								height={height ?? 700}
+								rowCount={rowCount}
+								rowHeight={isBig ? 700 : 330}
+								rowRenderer={rowRenderer}
+								width={width ? width - 80 : 700}
+								autoHeight
+								onScroll={onChildScroll}
+								isScrolling={isScrolling}
+								scrollTop={scrollTop}
+							/>
+						)
+						: (
+							articles.map(item => (
+								<ArticleListItem
+									article={item}
+									view={view}
+									target={target}
+									key={item.id}
+									className={styles.card}
+								/>
+							))
+						)
+					}
 					{isLoading && getSkeletons(view)}
 				</div>
 			)}
