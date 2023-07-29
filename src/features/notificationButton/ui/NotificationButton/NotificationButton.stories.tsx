@@ -1,5 +1,5 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import { NotificationButton } from './notificationButton'
+import { NotificationButton } from './NotificationButton'
 
 export default {
 	title: 'shared/NotificationButton',
