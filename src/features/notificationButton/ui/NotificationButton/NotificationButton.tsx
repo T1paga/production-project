@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import { BrowserView, MobileView } from 'react-device-detect'
-import { memo, useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
 import { NotificationList } from 'entities/Notification'
 import { Popover } from 'shared/ui/Popups'
-import styles from './NotificationButton.module.scss'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
+import { BrowserView, MobileView } from 'react-device-detect'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
+import cls from './NotificationButton.module.scss'
 
 interface NotificationButtonProps {
 	className?: string
@@ -15,16 +16,17 @@ interface NotificationButtonProps {
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
 	const { className } = props
-
 	const [isOpen, setIsOpen] = useState(false)
 
-	const onOpenDrawer = () => {
+	const onOpenDrawer = useCallback(() => {
+		console.log('Я открылся блять')
 		setIsOpen(true)
-	}
+	}, [])
 
-	const onCloseDrawer = () => {
+	const onCloseDrawer = useCallback(() => {
+		console.log('Я закрылся блять')
 		setIsOpen(false)
-	}
+	}, [])
 
 	const trigger = (
 		<Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
@@ -36,19 +38,22 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 		<div>
 			<BrowserView>
 				<Popover
-					className={classNames(styles.NotificationButton, {}, [className])}
+					className={classNames(cls.NotificationButton, {}, [className])}
 					direction="bottom left"
 					trigger={trigger}
 				>
-					<NotificationList className={styles.notifications} />
+					<NotificationList className={cls.notifications} />
 				</Popover>
 			</BrowserView>
 			<MobileView>
 				{trigger}
-				<Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-					<NotificationList />
-				</Drawer>
+				<AnimationProvider>
+					<Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+						<NotificationList />
+					</Drawer>
+				</AnimationProvider>
 			</MobileView>
 		</div>
+
 	)
 })
