@@ -3,7 +3,7 @@ import { type HTMLAttributeAnchorTarget, memo } from 'react'
 
 import styles from './ArticleListItem.module.scss'
 import { useTranslation } from 'react-i18next'
-import { type Article, ArticleView, ArticleBlockType, type ArticleTextBlock } from '../../model/types/article'
+import { type Article, type ArticleTextBlock } from '../../model/types/article'
 import { Text } from 'shared/ui/Text/Text'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
@@ -13,6 +13,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { ArticleBlockType, ArticleView } from '../../model/const/const'
 
 interface ArticleListItemProps {
 	className?: string

@@ -4,12 +4,13 @@ import { type HTMLAttributeAnchorTarget, memo } from 'react'
 
 import styles from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleView, type Article } from '../../model/types/article'
+import { type Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { Text, TextSize } from 'shared/ui/Text/Text'
-import { AutoSizer, List, type ListRowProps, WindowScroller } from 'react-virtualized'
+import { List, type ListRowProps, WindowScroller } from 'react-virtualized'
 import { PAGE_ID } from 'widgets/Page/Page'
+import { ArticleView } from '../../model/const/const'
 
 interface ArticleListProps {
 	className?: string

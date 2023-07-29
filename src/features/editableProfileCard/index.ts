@@ -1,5 +1,6 @@
+export { ValidateProfileError } from './model/const/const'
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
-export { type ProfileSchema, ValidateProfileError } from './model/types/editableProfileCardSchema'
+export { type ProfileSchema } from './model/types/editableProfileCardSchema'
 export { profileReducer, profileActions } from './model/slice/ProfileSlice'
 export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading'
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
