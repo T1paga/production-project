@@ -1,4 +1,4 @@
-import { type Mods, classNames } from 'shared/lib/classNames/classNames'
+import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 
 import styles from './Avatar.module.scss'
 import { type CSSProperties, useMemo } from 'react'

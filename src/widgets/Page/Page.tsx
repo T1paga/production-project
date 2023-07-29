@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Page.module.scss'
 import { type ReactNode, memo, type UIEvent, useRef, type MutableRefObject } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { uiActions } from 'features/UI'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { uiActions } from '@/features/UI'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSelector } from 'react-redux'
-import { getUIscrollByPath } from 'features/UI/model/selectors/ui'
-import { type StateSchema } from 'app/providers/StoreProvider'
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
+import { getUIscrollByPath } from '@/features/UI/model/selectors/ui'
+import { type StateSchema } from '@/app/providers/StoreProvider'
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 
 interface PageProps {
 	className?: string

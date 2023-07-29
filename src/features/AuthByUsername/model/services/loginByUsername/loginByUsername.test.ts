@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import axios from "axios"
 import { loginByUsername } from "./loginByUsername"
-import { type StateSchema } from "app/providers/StoreProvider"
+import { type StateSchema } from "@/app/providers/StoreProvider"
 import { type Dispatch } from "@reduxjs/toolkit"
-import { userActions } from "entities/User"
-import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/testAsyncThunk"
+import { userActions } from "@/entities/User"
+import { TestAsyncThunk } from "@/shared/lib/tests/testAsyncThunk/testAsyncThunk"
 
 describe('loginByUsername', () => {
 	// let dispatch: Dispatch

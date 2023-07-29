@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import styles from './ArticleImageBlockComponent.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import type { ArticleImageBlock } from '../../model/types/article'
-import { Text, TextAlign } from 'shared/ui/Text/Text'
+import { Text, TextAlign } from '@/shared/ui/Text/Text'
 
 interface ArticleImageBlockComponentProps {
 	className?: string

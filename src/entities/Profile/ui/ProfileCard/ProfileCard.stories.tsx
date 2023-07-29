@@ -1,8 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ProfileCard } from '../../index'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import avatar from 'shared/assets/tests/avatar.webp'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import avatar from '@/shared/assets/tests/avatar.webp'
 
 export default {
 	title: 'entities/ProfileCard',
