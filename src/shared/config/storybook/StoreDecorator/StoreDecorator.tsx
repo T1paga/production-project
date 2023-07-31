@@ -5,7 +5,7 @@ import { type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/D
 import { articleDetailsReducer } from '@/entities/Article/testing'
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing'
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing'
-import { profileReducer } from '@/features/editableProfileCard'
+import { profileReducer } from '@/features/editableProfileCard/testing'
 
 const defaultAsyncReducers: ReducersList = {
 	loginForm: loginReducer,
