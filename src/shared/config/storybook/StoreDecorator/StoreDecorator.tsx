@@ -1,3 +1,4 @@
+/* eslint-disable ulbi-tv-plugin/public-api-imports */
 import { type Story } from '@storybook/react'
 import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
 import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice'

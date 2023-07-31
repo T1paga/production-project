@@ -3,7 +3,7 @@ import { memo } from 'react'
 
 import styles from './ArticleEditPage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { useParams } from 'react-router-dom'
 
 interface ArticleEditPageProps {

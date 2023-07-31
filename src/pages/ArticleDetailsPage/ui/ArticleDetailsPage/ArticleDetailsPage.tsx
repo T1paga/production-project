@@ -5,14 +5,14 @@ import { ArticleDetails } from '@/entities/Article'
 import { useParams } from 'react-router-dom'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import styles from './ArticleDetailsPage.module.scss'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
-import ArticleRating from '@/features/articleRating/ui/ArticleRating/ArticleRating'
+import { ArticleRating } from '@/features/articleRating'
 
 interface ArticleDetailsPageProps {
 	className?: string
