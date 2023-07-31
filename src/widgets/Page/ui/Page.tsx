@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Page.module.scss'
-import { type ReactNode, memo, type UIEvent, useRef, type MutableRefObject } from 'react'
+import { type ReactNode, type UIEvent, useRef, type MutableRefObject } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'

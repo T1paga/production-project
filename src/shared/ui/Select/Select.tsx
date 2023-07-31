@@ -1,7 +1,7 @@
 import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 
 import styles from './Select.module.scss'
-import { type ChangeEvent, memo, useMemo } from 'react'
+import { type ChangeEvent, useMemo } from 'react'
 
 export interface SelectOptions<T extends string> {
 	value: T

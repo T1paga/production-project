@@ -29,7 +29,8 @@ module.exports = {
 		"ulbi-tv-plugin",
 		"react",
 		"i18next",
-		"react-hooks"
+		"react-hooks",
+		"unused-imports"
 	],
 	rules: {
 		"react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
@@ -48,6 +49,7 @@ module.exports = {
 		'react/display-name': 'off',
 		'no-shadow': 'off',
 		'import/extensions': 'off',
+		"unused-imports/no-unused-imports": "error",
 		'import/no-extraneous-dependencies': 'off',
 		'no-underscore-dangle': 'off',
 		'@typescript-eslint/strict-boolean-expressions': 'off',

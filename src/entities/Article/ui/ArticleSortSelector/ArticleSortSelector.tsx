@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 
 import styles from './ArticleSortSelector.module.scss'
 import { useTranslation } from 'react-i18next'

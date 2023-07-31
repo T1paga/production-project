@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback } from 'react'
 
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +15,6 @@ import styles from './ArticlesPageFilters.module.scss'
 import { type sortOrder } from '@/shared/types'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { type TabItem, Tabs } from '@/shared/ui/Tabs'
 import {
 	getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
 	getArticlesPageType, getArticlesPageView

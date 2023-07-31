@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { type ReactNode, memo, useCallback } from 'react'
+import { memo, useCallback } from 'react'
 
 import styles from './Code.module.scss'
 import { Button, ButtonTheme } from '../Button/Button'
