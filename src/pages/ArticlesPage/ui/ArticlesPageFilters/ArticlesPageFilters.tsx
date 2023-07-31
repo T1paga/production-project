@@ -9,13 +9,13 @@ import {
 } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
-import { Card } from '@/shared/ui/Card/Card'
-import { Input } from '@/shared/ui/Input/Input'
+import { Card } from '@/shared/ui/Card'
+import { Input } from '@/shared/ui/Input'
 import styles from './ArticlesPageFilters.module.scss'
 import { type sortOrder } from '@/shared/types'
 import { articlesPageActions } from '../../model/slices/articlesPageSlice'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { type TabItem, Tabs } from '@/shared/ui/Tabs/Tabs'
+import { type TabItem, Tabs } from '@/shared/ui/Tabs'
 import {
 	getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
 	getArticlesPageType, getArticlesPageView

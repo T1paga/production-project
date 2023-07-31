@@ -4,7 +4,7 @@ import styles from './ArticleTextBlockComponent.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import type { ArticleTextBlock } from '../../model/types/article'
-import { Text } from '@/shared/ui/Text/Text'
+import { Text } from '@/shared/ui/Text'
 
 interface ArticleTextBlockComponentProps {
 	className?: string

@@ -4,7 +4,7 @@ import styles from './ArticleCodeBlockComponent.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import type { ArticleCodeBlock } from '../../model/types/article'
-import { Code } from '@/shared/ui/Code/Code'
+import { Code } from '@/shared/ui/Code'
 
 interface ArticleCodeBlockComponentProps {
 	className?: string
