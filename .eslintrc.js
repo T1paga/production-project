@@ -76,7 +76,7 @@ module.exports = {
 				ignoreAttribute: ['data-testid', 'to']
 			}
 		],
-		'ulbi-tv-plugin/path-checker': 'error'
+		'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }]
 	},
 	globals: {
 		__IS_DEV__: true,
