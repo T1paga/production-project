@@ -713,6 +713,12 @@
       "userId": "1",
       "text": "123",
       "id": "EI_EVK_"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "text": "345",
+      "id": "6UwluP5"
     }
   ],
   "users": [
@@ -831,6 +837,13 @@
       "rate": 3,
       "feedback": "",
       "id": "cr1C445"
+    },
+    {
+      "userId": "1",
+      "articleId": "16",
+      "rate": 3,
+      "feedback": "",
+      "id": "jD4unUo"
     }
   ],
   "profile-ratings": [

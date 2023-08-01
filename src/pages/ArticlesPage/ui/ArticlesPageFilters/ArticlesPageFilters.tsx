@@ -4,8 +4,7 @@ import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import {
-	type ArticleView, ArticleViewSelector, type ArticleSortField, type ArticleType,
-	ArticleTypeTabs, ArticleSortSelector
+	type ArticleView, type ArticleSortField, type ArticleType
 } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
@@ -19,6 +18,9 @@ import {
 	getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
 	getArticlesPageType, getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 
 interface ArticlesPageFiltersProps {
 	className?: string
