@@ -14,6 +14,8 @@ import { AppLink } from '@/shared/ui/AppLink'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleBlockType, ArticleView } from '../../model/const/const'
 import { getRouteArticleDetails } from '@/shared/const/router'
+import { AppImage } from '@/shared/ui/AppImage'
+import { Skeleton } from '@/shared/ui/Skeleton'
 
 interface ArticleListItemProps {
 	className?: string
@@ -48,7 +50,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps): JSX.Element =
 					</div>
 					<Text title={article.title} className={styles.title} />
 					{types}
-					<img src={article.img} alt={article.title} className={styles.img} />
+					<AppImage
+						fallback={<Skeleton width={'100%'} height={250} />}
+						src={article.img}
+						alt={article.title}
+						className={styles.img}
+					/>
 					{textBlock && (
 						<ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
 					)}
@@ -76,7 +83,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps): JSX.Element =
 		>
 			<Card className={styles.card}>
 				<div className={styles.imageWrapper}>
-					<img alt={article.title} src={article.img} className={styles.img} />
+					<AppImage
+						fallback={<Skeleton width={200} height={200} />}
+						alt={article.title}
+						src={article.img}
+						className={styles.img}
+					/>
 					<Text text={article.createdAt} className={styles.date} />
 				</div>
 				<div className={styles.infoWrapper}>
