@@ -4,8 +4,8 @@ module.exports = {
 		es2021: true
 	},
 	extends: [
-		"plugin:react/recommended",
 		"standard-with-typescript",
+		"plugin:react/recommended",
 		"plugin:i18next/recommended",
 	],
 	settings: {
@@ -52,12 +52,16 @@ module.exports = {
 		"unused-imports/no-unused-imports": "error",
 		'import/no-extraneous-dependencies': 'off',
 		'no-underscore-dangle': 'off',
+		'@typescript-eslint/consistent-type-imports': 'error',
 		'@typescript-eslint/strict-boolean-expressions': 'off',
 		'@typescript-eslint/naming-convention': 'off',
 		'@typescript-eslint/space-before-function-paren': [0, 'always'],
+		'@typescript-eslint/no-misused-promises': 'off',
 		'eol-last': 0,
 		indent: [2, "tab"],
 		"no-tabs": 0,
+		'@typescript-eslint/consistent-type-imports': 'off',
+		'@typescript-eslint/': 'off',
 		'@typescript-eslint/quotes': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'@typescript-eslint/consistent-type-assertions': 'off',
@@ -68,7 +72,7 @@ module.exports = {
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
 		'@typescript-eslint/await-thenable': 'off',
-		'@typescript-eslint/no-misused-promises': 'off',
+		"@typescript-eslint/restrict-plus-operands": 'off',
 		'@typescript-eslint/no-invalid-void-type': 'off',
 		'@typescript-eslint/no-floating-promises': 'off',
 		'i18next/no-literal-string': [
