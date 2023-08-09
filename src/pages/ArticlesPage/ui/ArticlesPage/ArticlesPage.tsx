@@ -12,6 +12,7 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
+import { ArticlePageGreeting } from '@/features/articlePageGreeting'
 
 interface ArticlesPageProps {
 	className?: string
@@ -39,6 +40,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
 			<Page data-testid={'ArticlesPage'} onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className ?? ''])}>
 				<ArticlesPageFilters />
 				<ArticleInfiniteList className={styles.list} />
+				<ArticlePageGreeting />
 			</Page>
 		</DynamicModuleLoader>
 	)
