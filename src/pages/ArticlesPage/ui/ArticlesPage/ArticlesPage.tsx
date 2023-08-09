@@ -1,18 +1,25 @@
-import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { memo, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Page } from '@/widgets/Page'
-import styles from './ArticlesPage.module.scss'
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
-import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import {
+	DynamicModuleLoader,
+	ReducersList
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Page } from '@/widgets/Page'
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice'
+import cls from './ArticlesPage.module.scss'
 import { ArticlePageGreeting } from '@/features/articlePageGreeting'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer'
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
 
 interface ArticlesPageProps {
 	className?: string
@@ -22,8 +29,9 @@ const reducers: ReducersList = {
 	articlesPage: articlesPageReducer
 }
 
-const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
-	const { t } = useTranslation('article')
+const ArticlesPage = (props: ArticlesPageProps) => {
+	const { className } = props
+	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const [searchParams] = useSearchParams()
 
@@ -35,13 +43,46 @@ const ArticlesPage = ({ className }: ArticlesPageProps): JSX.Element => {
 		dispatch(initArticlesPage(searchParams))
 	})
 
+	const content = (
+		<ToggleFeatures
+			feature="isAppRedesigned"
+			on={
+				<StickyContentLayout
+					left={<ViewSelectorContainer />}
+					right={<FiltersContainer />}
+					content={
+						<Page
+							data-testid="ArticlesPage"
+							onScrollEnd={onLoadNextPart}
+							className={classNames(
+								cls.ArticlesPageRedesigned,
+								{},
+								[className]
+							)}
+						>
+							<ArticleInfiniteList className={cls.list} />
+							<ArticlePageGreeting />
+						</Page>
+					}
+				/>
+			}
+			off={
+				<Page
+					data-testid="ArticlesPage"
+					onScrollEnd={onLoadNextPart}
+					className={classNames(cls.ArticlesPage, {}, [className])}
+				>
+					<ArticlesPageFilters />
+					<ArticleInfiniteList className={cls.list} />
+					<ArticlePageGreeting />
+				</Page>
+			}
+		/>
+	)
+
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-			<Page data-testid={'ArticlesPage'} onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className ?? ''])}>
-				<ArticlesPageFilters />
-				<ArticleInfiniteList className={styles.list} />
-				<ArticlePageGreeting />
-			</Page>
+			{content}
 		</DynamicModuleLoader>
 	)
 }

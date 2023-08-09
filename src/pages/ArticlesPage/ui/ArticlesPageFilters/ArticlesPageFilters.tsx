@@ -1,101 +1,58 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { memo, useCallback } from 'react'
-
-import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import {
-	type ArticleView, type ArticleSortField, type ArticleType
-} from '@/entities/Article'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
+import { memo } from 'react'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Card } from '@/shared/ui/deprecated/Card'
 import { Input } from '@/shared/ui/deprecated/Input'
-import styles from './ArticlesPageFilters.module.scss'
-import { type sortOrder } from '@/shared/types'
-import { articlesPageActions } from '../../model/slices/articlesPageSlice'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import {
-	getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
-	getArticlesPageType, getArticlesPageView
-} from '../../model/selectors/articlesPageSelectors'
+import cls from './ArticlesPageFilters.module.scss'
+
 import { ArticleSortSelector } from '@/features/ArticleSortSelector'
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters'
 
 interface ArticlesPageFiltersProps {
 	className?: string
 }
 
-export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps): JSX.Element => {
+export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 	const { className } = props
 	const { t } = useTranslation()
-	const dispatch = useAppDispatch()
-	const view = useSelector(getArticlesPageView)
-	const sort = useSelector(getArticlesPageSort)
-	const order = useSelector(getArticlesPageOrder)
-	const search = useSelector(getArticlesPageSearch)
-	const type = useSelector(getArticlesPageType)
-
-	const fetchData = useCallback(() => {
-		dispatch(fetchArticlesList({ replace: true }))
-	}, [dispatch])
-
-	const debouncedFetchData = useDebounce(fetchData, 1000)
-
-	const onChangeView = useCallback((view: ArticleView) => {
-		dispatch(articlesPageActions.setView(view))
-		dispatch(articlesPageActions.setPage(1))
-		fetchData()
-	}, [dispatch, fetchData])
-
-	const onChangeSort = useCallback((newSort: ArticleSortField) => {
-		dispatch(articlesPageActions.setSort(newSort))
-		dispatch(articlesPageActions.setPage(1))
-		debouncedFetchData()
-	}, [dispatch, debouncedFetchData])
-
-	const onChangeOrder = useCallback((newOrder: sortOrder) => {
-		dispatch(articlesPageActions.setOrder(newOrder))
-		dispatch(articlesPageActions.setPage(1))
-		debouncedFetchData()
-	}, [dispatch, debouncedFetchData])
-
-	const onChangeSearch = useCallback((search: string) => {
-		dispatch(articlesPageActions.setSearch(search))
-		dispatch(articlesPageActions.setPage(1))
-		debouncedFetchData()
-	}, [dispatch, debouncedFetchData])
-
-	const onChangeType = useCallback((value: ArticleType) => {
-		dispatch(articlesPageActions.setType(value))
-		dispatch(articlesPageActions.setPage(1))
-		fetchData()
-	}, [dispatch, fetchData])
+	const {
+		onChangeSort,
+		onChangeType,
+		sort,
+		type,
+		onChangeSearch,
+		search,
+		onChangeView,
+		view,
+		onChangeOrder,
+		order
+	} = useArticleFilters()
 
 	return (
-		<div className={classNames(styles.ArticlesPageFilters, {}, [className ?? ''])}>
-			<div className={styles.sortWrapper}>
+		<div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+			<div className={cls.sortWrapper}>
 				<ArticleSortSelector
 					order={order}
-					onChangeOrder={onChangeOrder}
 					sort={sort}
+					onChangeOrder={onChangeOrder}
 					onChangeSort={onChangeSort}
 				/>
 				<ArticleViewSelector view={view} onViewClick={onChangeView} />
 			</div>
-			<Card className={styles.search}>
+			<Card className={cls.search}>
 				<Input
-					value={search}
 					onChange={onChangeSearch}
-					placeholder={'Поиск'}
+					value={search}
+					placeholder={t('Поиск')}
 				/>
 			</Card>
 			<ArticleTypeTabs
-				className={styles.tabs}
 				value={type}
 				onChangeType={onChangeType}
+				className={cls.tabs}
 			/>
 		</div>
 	)
-}
-)
+})

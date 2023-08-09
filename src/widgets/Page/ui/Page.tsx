@@ -2,15 +2,15 @@ import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getUIscrollByPath, uiActions } from '@/features/UI'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { StateSchema } from '@/app/providers/StoreProvider'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
-import { TestProps } from '@/shared/types/test'
 import { toggleFeatures } from '@/shared/lib/features'
+import { TestProps } from '@/shared/types/test'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
 
 interface PageProps extends TestProps {
 	className?: string
@@ -32,7 +32,11 @@ export const Page = memo((props: PageProps) => {
 
 	useInfiniteScroll({
 		triggerRef,
-		wrapperRef,
+		wrapperRef: toggleFeatures({
+			name: 'isAppRedesigned',
+			on: () => undefined,
+			off: () => wrapperRef
+		}),
 		callback: onScrollEnd
 	})
 
