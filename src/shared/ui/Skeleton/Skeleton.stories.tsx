@@ -41,17 +41,17 @@ DarklCircle.args = {
 }
 DarklCircle.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Pink = Template.bind({})
-Pink.args = {
+export const orange = Template.bind({})
+orange.args = {
 	width: '100%',
 	height: 200
 }
-Pink.decorators = [ThemeDecorator(Theme.PINK)]
+orange.decorators = [ThemeDecorator(Theme.ORANGE)]
 
-export const PinklCircle = Template.bind({})
-PinklCircle.args = {
+export const orangelCircle = Template.bind({})
+orangelCircle.args = {
 	border: '50%',
 	width: 100,
 	height: 100
 }
-PinklCircle.decorators = [ThemeDecorator(Theme.PINK)]
+orangelCircle.decorators = [ThemeDecorator(Theme.ORANGE)]

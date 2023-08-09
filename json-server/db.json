@@ -731,11 +731,12 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "avatar": "https://cdn.metatime.com/landing/blog/1686575019blobid0.jpg",
       "jsonSettings": {
-        "theme": "app_pink_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -750,9 +751,14 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": false
       },
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isArticlesPageWasOpened": true
+      }
     },
     {
       "id": "3",
@@ -763,7 +769,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": false
       },
       "avatar": "https://cdn.metatime.com/landing/blog/1686575019blobid0.jpg"
     }

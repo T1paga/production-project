@@ -8,6 +8,9 @@ export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
 	}
 }
 
-export function getFeatureFlag(flag: keyof FeatureFlags) {
-	return featureFlags[flag]
+export function getFeatureFlag(flag) {
+	if (typeof featureFlags === 'object' && flag in featureFlags) {
+		return featureFlags[flag]
+	}
+	return false
 }

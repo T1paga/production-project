@@ -1,10 +1,21 @@
-.app_pink_theme {
+.app_orange_theme {
     --bg-color: #fbf4f8;
     --inverted-bg-color: #ff24b1;
     --primary-color: #c000fa;
     --secondary-color: #c000fa;
     --inverted-primary-color: #fbf4f8;
     --inverted-secondary-color: #fbf4f8;
+
+    // redesigned
+    --dark-bg-redesigned: #fff3d6;
+    --bg-redesigned: #f0c048;
+    --light-bg-redesigned: #f2d791;
+    --text-redesigned: #1b1311;
+    --hint-redesigned: #b8b2a2;
+    --cancel-redesigned: #ff5e5e;
+    --save-redesigned: #52fa81;
+    --icon-redesigned: #4875f0;
+    --accent-redesigned: #1d59ff;
 
     // skeleton
     --skeleton-color: #e399e1;

@@ -1,7 +1,7 @@
+import { useTranslation } from 'react-i18next'
+import React, { memo, useCallback, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
-import { memo, useCallback, useState } from 'react'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { LoginModal } from '@/features/AuthByUsername'
 import { getUserAuthData } from '@/entities/User'
@@ -10,8 +10,9 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
 import { HStack } from '@/shared/ui/Stack'
 import { NotificationButton } from '@/features/notificationButton'
 import { AvatarDropdown } from '@/features/avatarDropdown'
-import styles from './Navbar.module.scss'
+import cls from './Navbar.module.scss'
 import { getRouteArticleCreate } from '@/shared/const/router'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface NavbarProps {
 	className?: string
@@ -32,40 +33,56 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	if (authData) {
 		return (
-			<div className={classNames(styles.Navbar, {}, [className])}>
-				<Text
-					className={styles.appName}
-					title={'T1paga App'}
-					theme={TextTheme.INVERTED}
-				/>
-				<AppLink
-					className={styles.createBtn}
-					to={getRouteArticleCreate()}
-					theme={AppLinkTheme.SECONDARY}
-				>
-					Создать статью
-				</AppLink>
-				<HStack gap='16' className={styles.actions}>
-					<NotificationButton />
-					<AvatarDropdown />
-				</HStack>
-			</div>
+			<ToggleFeatures
+				feature="isAppRedesigned"
+				on={
+					<header
+						className={classNames(cls.NavbarRedesigned, {}, [
+							className
+						])}
+					>
+						<HStack gap="16" className={cls.actions}>
+							<NotificationButton />
+							<AvatarDropdown />
+						</HStack>
+					</header>
+				}
+				off={
+					<header className={classNames(cls.Navbar, {}, [className])}>
+						<Text
+							className={cls.appName}
+							title={t('T1paga TV App')}
+							theme={TextTheme.INVERTED}
+						/>
+						<AppLink
+							to={getRouteArticleCreate()}
+							theme={AppLinkTheme.SECONDARY}
+							className={cls.createBtn}
+						>
+							{t('Создать статью')}
+						</AppLink>
+						<HStack gap="16" className={cls.actions}>
+							<NotificationButton />
+							<AvatarDropdown />
+						</HStack>
+					</header>
+				}
+			/>
 		)
 	}
 
 	return (
-		<header className={classNames(styles.Navbar, {}, [className])}>
+		<header className={classNames(cls.Navbar, {}, [className])}>
 			<Button
 				theme={ButtonTheme.CLEAR_INVERTED}
-				className={styles.links}
+				className={cls.links}
 				onClick={onShowModal}
 			>
 				{t('Войти')}
 			</Button>
-			{isAuthModal && <LoginModal
-				isOpen={isAuthModal}
-				onClose={onCloseModal}
-			/>}
+			{isAuthModal && (
+				<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+			)}
 		</header>
 	)
 })
