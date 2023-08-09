@@ -7,7 +7,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { type Currency } from '@/entities/Currency'
 import { type Country } from '@/entities/Country'
 import { ProfileCard } from '@/entities/Profile'
-import { Text, TextTheme } from '@/shared/ui/Text'
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
@@ -17,7 +17,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/ProfileSlice'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { VStack } from '@/shared/ui/Stack'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 import { ValidateProfileError } from '../../model/const/const'
 
 interface EditableProfileCardProps {
