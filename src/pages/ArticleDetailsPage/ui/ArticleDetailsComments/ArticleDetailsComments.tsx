@@ -12,7 +12,7 @@ import { getArticleComments } from '../../model/slices/articleDetailsCommentSlic
 import { getArticleCommentsIsloading } from '../../model/selectors/comments'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 interface ArticleDetailsCommentsProps {
 	className?: string

@@ -2,7 +2,7 @@ import { type Mods, classNames } from '@/shared/lib/classNames/classNames'
 
 import styles from './Avatar.module.scss'
 import { type CSSProperties, useMemo } from 'react'
-import { AppImage } from '../AppImage'
+import { AppImage } from '../../redesigned/AppImage/AppImage'
 import userIcon from '@/shared/assets/icons/user-filled.svg'
 import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'

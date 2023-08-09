@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './ProfilePage.module.scss'
 
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { EditableProfileCard } from '@/features/editableProfileCard'
 import { Page } from '@/widgets/Page'
 import { useParams } from 'react-router-dom'
