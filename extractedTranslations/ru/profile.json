@@ -1,5 +1,6 @@
 {
   "An error occurred while loading": "An error occurred while loading",
+  "Cсылка на аватар": "Cсылка на аватар",
   "User profile": "User profile",
   "cancel": "cancel",
   "edit": "edit",
@@ -15,5 +16,15 @@
   "your city": "your city",
   "your lastname": "your lastname",
   "your name": "your name",
-  "your username": "your username"
+  "your username": "your username",
+  "Ваш возраст": "Ваш возраст",
+  "Ваша фамилия": "Ваша фамилия",
+  "Ваше имя": "Ваше имя",
+  "Введите имя пользователя": "Введите имя пользователя",
+  "Введите ссылку на аватар": "Введите ссылку на аватар",
+  "Возраст": "Возраст",
+  "Город": "Город",
+  "Имя": "Имя",
+  "Имя пользователя": "Имя пользователя",
+  "Фамилия": "Фамилия"
 }
