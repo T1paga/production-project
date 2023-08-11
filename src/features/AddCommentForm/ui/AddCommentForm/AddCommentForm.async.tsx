@@ -1,7 +1,6 @@
-import { type FC, lazy } from 'react'
-import { type AddCommentFormProps } from './AddCommentForm'
+import { lazy } from 'react'
 
-export const AddCommentFormAsync = lazy<FC<AddCommentFormProps>>(async () => {
+export const AddCommentFormAsync = lazy(async () => {
 	const module = await import('./AddCommentForm')
 	return { default: module.default }
 })

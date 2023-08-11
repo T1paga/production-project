@@ -1,31 +1,33 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { ArticleType, type Article, ArticleBlockType } from '@/entities/Article'
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 export default {
-	title: 'pages/ArticleDetailsPage',
+	title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
 	component: ArticleDetailsPage,
 	argTypes: {
 		backgroundColor: { control: 'color' }
 	}
 } as ComponentMeta<typeof ArticleDetailsPage>
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+	<ArticleDetailsPage {...args} />
+)
 
 const article: Article = {
 	id: '1',
 	title: 'Javascript news',
-	user: {
-		id: '1',
-		username: 'Tipaga'
-	},
 	subtitle: 'Что нового в JS за 2022 год?',
 	img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
 	views: 1022,
 	createdAt: '26.02.2022',
 	type: [ArticleType.IT],
+	user: {
+		id: '1',
+		username: 'Ulbi tv'
+	},
 	blocks: [
 		{
 			id: '1',
@@ -56,8 +58,10 @@ const article: Article = {
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [StoreDecorator({
-	articleDetails: {
-		data: article
-	}
-})]
+Normal.decorators = [
+	StoreDecorator({
+		articleDetails: {
+			data: article
+		}
+	})
+]

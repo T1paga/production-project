@@ -24,5 +24,9 @@
 	"Profile page": "Страница профиля",
 	"try refreshing the page": "попробуй обновить страницу",
 	"specify the currency": "укажите валюту",
-	"enter your country": "укажите вашу страну"
+	"enter your country": "укажите вашу страну",
+	"{{count}} просмотров_zero": "{{count}} просмотров",
+	"{{count}} просмотров_one": "{{count}} просмотр",
+	"{{count}} просмотров_few": "{{count}} просмотра",
+	"{{count}} просмотров_many": "{{count}} просмотров"
 }

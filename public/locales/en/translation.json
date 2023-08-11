@@ -23,5 +23,8 @@
 	"Выйти": "Exit",
 	"Profile page": "Profile Page",
 	"specify the currency": "specify the currency",
-	"enter your country": "enter your country"
+	"enter your country": "enter your country",
+	"{{count}} просмотров_zero": "{{count}} views",
+	"{{count}} просмотров_one": "{{count}} view",
+	"{{count}} просмотров_other": "{{count}} views"
 }
