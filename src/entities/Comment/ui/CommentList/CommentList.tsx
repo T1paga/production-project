@@ -1,11 +1,12 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { memo } from 'react'
-
-import { type Comment } from '../../model/types/comment'
 import { useTranslation } from 'react-i18next'
-import { Text } from '@/shared/ui/deprecated/Text'
-import { CommentCard } from '../CommentCard/CommentCard'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { CommentCard } from '../CommentCard/CommentCard'
+import { Comment } from '../../model/types/comment'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface CommentListProps {
 	className?: string
@@ -13,13 +14,13 @@ interface CommentListProps {
 	isLoading?: boolean
 }
 
-export const CommentList = memo((props: CommentListProps): JSX.Element => {
-	const { className, comments, isLoading } = props
+export const CommentList = memo((props: CommentListProps) => {
+	const { className, isLoading, comments } = props
 	const { t } = useTranslation()
 
 	if (isLoading) {
 		return (
-			<VStack gap='16' max className={classNames('styles.CommentList', {}, [className ?? ''])}>
+			<VStack gap="16" max className={classNames('', {}, [className])}>
 				<CommentCard isLoading />
 				<CommentCard isLoading />
 				<CommentCard isLoading />
@@ -27,23 +28,25 @@ export const CommentList = memo((props: CommentListProps): JSX.Element => {
 		)
 	}
 
-	if (!comments) {
-		return <></>
-	}
-
 	return (
-		<VStack gap='16' max className={classNames('', {}, [className ?? ''])}>
+		<VStack gap="16" max className={classNames('', {}, [className])}>
 			{comments?.length
-				? comments.map((comment) => (
-					<CommentCard
-						key={comment.id}
-						comment={comment}
-						isLoading={isLoading}
+				? (
+					comments.map((comment) => (
+						<CommentCard
+							isLoading={isLoading}
+							comment={comment}
+							key={comment.id}
+						/>
+					))
+				)
+				: (
+					<ToggleFeatures
+						feature="isAppRedesigned"
+						on={<Text text={t('Комментарии отсутствуют')} />}
+						off={<TextDeprecated text={t('Комментарии отсутствуют')} />}
 					/>
-				))
-				: <Text text={t('No comments')} />
-			}
+				)}
 		</VStack>
 	)
-}
-)
+})
