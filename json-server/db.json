@@ -742,7 +742,8 @@
       },
       "avatar": "https://cdn.metatime.com/landing/blog/1686575019blobid0.jpg",
       "jsonSettings": {
-        "theme": "app_light_theme"
+        "isArticlesPageWasOpened": true,
+        "theme": "app_orange_theme"
       }
     },
     {
