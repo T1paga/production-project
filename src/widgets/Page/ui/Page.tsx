@@ -9,7 +9,7 @@ import { StateSchema } from '@/app/providers/StoreProvider'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
 import { toggleFeatures } from '@/shared/lib/features'
-import { TestProps } from '@/shared/types/test'
+import { TestProps } from '@/shared/types/forTest'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfinityScroll'
 
 interface PageProps extends TestProps {
