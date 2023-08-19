@@ -79,7 +79,17 @@ module.exports = {
 			'warn',
 			{
 				markupOnly: true,
-				ignoreAttribute: ['data-testid', 'to']
+				ignoreAttribute: [
+					'data-testid',
+					'to',
+					'feature',
+					'size',
+					'justify',
+					'border',
+					'variant',
+					'align',
+					'wrap'
+				]
 			}
 		],
 		'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],

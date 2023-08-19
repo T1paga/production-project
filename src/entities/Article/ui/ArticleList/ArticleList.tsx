@@ -37,7 +37,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 		isLoading,
 		target
 	} = props
-	const { t } = useTranslation()
+	const { t } = useTranslation('article')
 
 	if (!isLoading && !articles.length) {
 		return (

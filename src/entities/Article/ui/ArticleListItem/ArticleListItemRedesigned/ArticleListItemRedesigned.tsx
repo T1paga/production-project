@@ -22,7 +22,7 @@ import {
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 	const { className, article, view, target } = props
-	const { t } = useTranslation()
+	const { t } = useTranslation('article')
 	let articleTitle = ''
 	if (article.title.length > 30) {
 		articleTitle = article.title.substring(0, 30) + '...'

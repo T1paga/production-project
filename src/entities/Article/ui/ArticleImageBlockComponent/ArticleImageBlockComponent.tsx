@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text'
@@ -15,7 +14,6 @@ interface ArticleImageBlockComponentProps {
 export const ArticleImageBlockComponent = memo(
 	(props: ArticleImageBlockComponentProps) => {
 		const { className, block } = props
-		const { t } = useTranslation()
 
 		return (
 			<div

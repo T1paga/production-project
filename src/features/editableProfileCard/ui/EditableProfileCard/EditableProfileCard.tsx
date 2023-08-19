@@ -41,11 +41,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 	const validateErrors = useSelector(getProfileValidateErrors)
 
 	const validateErrorTranslate = {
-		[ValidateProfileError.INCORRECT_AGE]: t('incorrect_age'),
-		[ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect_country'),
-		[ValidateProfileError.INCORRECT_USER_DATA]: t('incorrect_user_data'),
-		[ValidateProfileError.NO_DATA]: t('no_data'),
-		[ValidateProfileError.SERVER_ERROR]: t('server_error')
+		[ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+		[ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+		[ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+		[ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+		[ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении')
 	}
 
 	useInitialEffect(() => {
@@ -93,7 +93,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 				{validateErrors?.length && validateErrors.map(error => {
 					return <Text
 						theme={TextTheme.ERROR}
-						text={error}
+						text={validateErrorTranslate[error]}
 						key={error}
 						data-testid="EditableProfileCard.Error"
 					/>

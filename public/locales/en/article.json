@@ -1,3 +1,23 @@
 {
-	"Article not found": "Article not found"
+	"Article not found": "Article not found",
+	"Комментарии": "Comments",
+	"Назад к списку": "Back to list",
+	"Редактировать": "edit",
+	"Оценка статей скоро появится!": "Article rating coming soon!",
+	"Произошла ошибка при подгрузке данных": "An error occurred while loading data",
+	"Поиск": "Search",
+	"Доступ запрещен": "Access Denied",
+	"Статьи не найдены": "No articles found",
+	"Читать далее...": "Read more...",
+	"возрастанию": "ascending",
+	"убыванию": "descending",
+	"дате создания": "creation date",
+	"названию": "name",
+	"просмотрам": "views",
+	"Сортировать по:": "Sort by:",
+	"по": "by",
+	"Все статьи": "All articles",
+	"Айти": "IT",
+	"Экономика": "Economics",
+	"Наука": "Science"
 }

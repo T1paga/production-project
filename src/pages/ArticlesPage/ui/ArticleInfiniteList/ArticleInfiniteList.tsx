@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { ArticleList } from '@/entities/Article'
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 import { Text } from '@/shared/ui/deprecated/Text'
+import { useTranslation } from 'react-i18next'
 
 interface ArticleInfiniteListProps {
 	className?: string
@@ -12,7 +12,7 @@ interface ArticleInfiniteListProps {
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps): JSX.Element => {
 	const { className } = props
-	const dispatch = useAppDispatch()
+	const { t } = useTranslation('article')
 
 	const articles = useSelector(getArticles.selectAll)
 	const isLoading = useSelector(getArticlesPageIsLoading)
@@ -20,7 +20,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps): JSX.E
 	const error = useSelector(getArticlesPageError)
 
 	if (error) {
-		return <Text text='Произошла ошибка при подгрузке данных' />
+		return <Text text={t('Произошла ошибка при подгрузке данных')} />
 	}
 
 	return (

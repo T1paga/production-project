@@ -10,11 +10,11 @@ interface ForbiddenPageProps {
 
 const ForbiddenPage = memo((props: ForbiddenPageProps): JSX.Element => {
 	const { className } = props
-	const { t } = useTranslation()
+	const { t } = useTranslation('article')
 
 	return (
 		<Page data-testid={'ForbiddenPage'} className={classNames('', {}, [className ?? ''])}>
-			Доступ запрещен
+			{t('Доступ запрещен')}
 		</Page>
 	)
 }

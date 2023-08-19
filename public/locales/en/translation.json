@@ -2,7 +2,6 @@
 	"Тестовый пример": "Test example",
 	"Перевод": "Translate",
 	"Главная страница": "Main page",
-	"Профиль": "Profile",
 	"Язык": "English",
 	"новый перевод": "новый перевод",
 	"Страница не найдена": "Page not found",
@@ -20,11 +19,17 @@
 	"Введите пароль": "Enter password",
 	"Форма авторизации": "Auth form",
 	"Вы ввели неверный логин или пароль": "Uncorrect username or password",
-	"Выйти": "Exit",
 	"Profile page": "Profile Page",
 	"specify the currency": "specify the currency",
 	"enter your country": "enter your country",
 	"{{count}} просмотров_zero": "{{count}} views",
 	"{{count}} просмотров_one": "{{count}} view",
-	"{{count}} просмотров_other": "{{count}} views"
+	"{{count}} просмотров_other": "{{count}} views",
+	"Админка": "Admin panel",
+	"Профиль": "Profile",
+	"Настройки": "Settings",
+	"Выйти": "Exit",
+	"Статьи": "Articles",
+	"Введите текст комментария": "Enter comment text",
+	"Отправить": "Send"
 }

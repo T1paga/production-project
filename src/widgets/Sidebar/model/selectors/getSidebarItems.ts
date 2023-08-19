@@ -18,9 +18,11 @@ import {
 	getRouteProfile
 } from '@/shared/const/router'
 import { toggleFeatures } from '@/shared/lib/features'
+import { useTranslation } from 'react-i18next'
 
 export const useSidebarItems = () => {
 	const userData = useSelector(getUserAuthData)
+	const { t } = useTranslation()
 	const sidebarItemsList: SidebarItemType[] = [
 		{
 			path: getRouteMain(),
@@ -29,7 +31,7 @@ export const useSidebarItems = () => {
 				off: () => MainIconDeprecated,
 				on: () => MainIcon
 			}),
-			text: 'Главная'
+			text: t('Главная')
 		},
 		{
 			path: getRouteAbout(),
@@ -38,7 +40,7 @@ export const useSidebarItems = () => {
 				off: () => AboutIconDeprecated,
 				on: () => AboutIcon
 			}),
-			text: 'О сайте'
+			text: t('О сайте')
 		}
 	]
 
@@ -51,7 +53,7 @@ export const useSidebarItems = () => {
 					off: () => ProfileIconDeprecated,
 					on: () => ProfileIcon
 				}),
-				text: 'Профиль',
+				text: t('Профиль'),
 				authOnly: true
 			},
 			{
@@ -61,7 +63,7 @@ export const useSidebarItems = () => {
 					off: () => ArticleIconDeprecated,
 					on: () => ArticleIcon
 				}),
-				text: 'Статьи',
+				text: t('Статьи'),
 				authOnly: true
 			}
 		)
