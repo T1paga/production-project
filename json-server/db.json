@@ -36,7 +36,7 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news [update]",
+      "title": "Javascript news",
       "subtitle": "Искусственный интеллект в медицине: Как машины становятся докторами",
       "img": "https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg",
       "views": 1022,
@@ -743,7 +743,7 @@
       "avatar": "https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       }
     },
     {

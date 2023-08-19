@@ -1,5 +1,6 @@
 .textAreaField {
     width: 100%;
+    padding: 15px;
 }
 
 // .textBlock {
@@ -12,6 +13,13 @@
 // }
 
 .titleBlock {
-    height: 20px;
-    background-color: black;
+    width: 70% !important;
+    padding: 2px !important;
+    max-height: 34px;
+    border: 2px solid var(--save-redesigned) !important;
+}
+
+.paragraphWrapper {
+    width: 100%;
+    position: relative;
 }

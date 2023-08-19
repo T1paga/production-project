@@ -1,0 +1,12 @@
+.DeleteParagraph {
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+    top: 0;
+    width: 15px;
+    height: 65px;
+    background: var(--cancel-redesigned);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

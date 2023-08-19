@@ -6,6 +6,8 @@ import { Textarea } from '@/shared/ui/redesigned/Textarea'
 import { ChangeEvent, memo, useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
+import { EditBlock } from '../EditBlock/EditBlock'
+import { DeleteParagraph } from '../DeleteParagraph/DeleteParagraph'
 
 interface EditableArticleCardBlockInfoProps {
 	className?: string
@@ -119,16 +121,31 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 							value={block.title || ''}
 							onChange={(e) => onChangeTitleBlock(e, block.id)}
 						/>
+
 						{
 							block.paragraphs.map((paragraph, index) => (
-								<Textarea
-									className={styles.textBlock}
-									key={block.id + `${index}`}
-									value={paragraph}
-									onChange={(e) => onChangeParagraph(e, block.id, index)} />
-							))
+								<div key={block.id + `${index}`} className={styles.paragraphWrapper}>
+									<Textarea
+										className={styles.textBlock}
+										value={paragraph}
+										onChange={(e) => onChangeParagraph(e, block.id, index)} />
+									<DeleteParagraph
+										articleData={articleData}
+										setArticleData={setArticleData}
+										index={index}
+										blockId={block.id}
+									/>
+								</div>
+							)
+							)
 						}
-					</VStack>
+						<EditBlock
+							blockId={block.id}
+							blockType={block.type}
+							articleData={articleData}
+							setArticleData={setArticleData}
+						/>
+					</VStack >
 				)
 			} else if (block.type === ArticleBlockType.CODE) {
 				return (
@@ -138,6 +155,12 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 							className={styles.codeBlock}
 							value={block.code}
 							onChange={(e) => onChangeCodeBlock(e, block.id)} />
+						<EditBlock
+							blockId={block.id}
+							blockType={block.type}
+							articleData={articleData}
+							setArticleData={setArticleData}
+						/>
 					</VStack>
 				)
 			} else {
@@ -149,10 +172,17 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 							value={block.title || ''}
 							onChange={(e) => onChangeTitleBlock(e, block.id)}
 						/>
+
 						<Textarea
 							className={styles.imgBlock}
 							value={block.src}
 							onChange={(e) => onChangeImgBlock(e, block.id)} />
+						<EditBlock
+							blockId={block.id}
+							blockType={block.type}
+							articleData={articleData}
+							setArticleData={setArticleData}
+						/>
 					</VStack>
 				)
 			}
