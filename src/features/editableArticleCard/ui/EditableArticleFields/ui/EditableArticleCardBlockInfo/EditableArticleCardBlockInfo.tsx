@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { Article, ArticleBlockType } from '@/entities/Article'
 import styles from './EditableArticleCardBlockInfo.module.scss'
 import { VStack } from '@/shared/ui/redesigned/Stack'
@@ -8,6 +9,7 @@ import { ChangeEvent, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EditBlock } from '../EditBlock/EditBlock'
 import { DeleteParagraph } from '../DeleteParagraph/DeleteParagraph'
+import { СheckValidate } from '../../helpers/СheckValidate'
 
 interface EditableArticleCardBlockInfoProps {
 	className?: string
@@ -16,7 +18,7 @@ interface EditableArticleCardBlockInfoProps {
 }
 
 export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBlockInfoProps): JSX.Element => {
-	const { className, articleData, setArticleData } = props
+	const { articleData, setArticleData } = props
 	const { t } = useTranslation()
 
 	const onChangeParagraph = useCallback((e: ChangeEvent<HTMLTextAreaElement>, blockId: string, number: number) => {
@@ -60,8 +62,6 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 			return block
 		})
 
-		console.log(updatedBlocks)
-
 		setArticleData({
 			...articleData,
 			blocks: updatedBlocks
@@ -80,8 +80,6 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 			}
 			return block
 		})
-
-		console.log(updatedBlocks)
 
 		setArticleData({
 			...articleData,
@@ -102,8 +100,6 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 			return block
 		})
 
-		console.log(updatedBlocks)
-
 		setArticleData({
 			...articleData,
 			blocks: updatedBlocks
@@ -121,14 +117,20 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 							value={block.title || ''}
 							onChange={(e) => onChangeTitleBlock(e, block.id)}
 						/>
-
+						<СheckValidate
+							field={block.title || ''}
+						/>
 						{
 							block.paragraphs.map((paragraph, index) => (
 								<div key={block.id + `${index}`} className={styles.paragraphWrapper}>
 									<Textarea
 										className={styles.textBlock}
 										value={paragraph}
-										onChange={(e) => onChangeParagraph(e, block.id, index)} />
+										onChange={(e) => onChangeParagraph(e, block.id, index)}
+									/>
+									<СheckValidate
+										field={paragraph}
+									/>
 									<DeleteParagraph
 										articleData={articleData}
 										setArticleData={setArticleData}
@@ -154,7 +156,11 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 						<Textarea
 							className={styles.codeBlock}
 							value={block.code}
-							onChange={(e) => onChangeCodeBlock(e, block.id)} />
+							onChange={(e) => onChangeCodeBlock(e, block.id)}
+						/>
+						<СheckValidate
+							field={block.code}
+						/>
 						<EditBlock
 							blockId={block.id}
 							blockType={block.type}
@@ -172,11 +178,17 @@ export const EditableArticleCardBlockInfo = memo((props: EditableArticleCardBloc
 							value={block.title || ''}
 							onChange={(e) => onChangeTitleBlock(e, block.id)}
 						/>
-
+						<СheckValidate
+							field={block.title || ''}
+						/>
 						<Textarea
 							className={styles.imgBlock}
 							value={block.src}
-							onChange={(e) => onChangeImgBlock(e, block.id)} />
+							onChange={(e) => onChangeImgBlock(e, block.id)}
+						/>
+						<СheckValidate
+							field={block.src}
+						/>
 						<EditBlock
 							blockId={block.id}
 							blockType={block.type}

@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Button } from '../../../Button/Button'

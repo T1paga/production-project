@@ -31,8 +31,6 @@ export const DeleteParagraph = memo((props: DeleteParagraphProps): JSX.Element =
 			return block
 		})
 
-		console.log(updatedBlocks)
-
 		setArticleData({
 			...articleData,
 			blocks: updatedBlocks
@@ -45,7 +43,7 @@ export const DeleteParagraph = memo((props: DeleteParagraphProps): JSX.Element =
 			variant={ButtonTheme.CLEAR}
 			onClick={handleParagraphDelete}
 		>
-			Х
+			{t('X')}
 		</Button>
 	)
 }

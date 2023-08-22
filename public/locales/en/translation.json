@@ -31,5 +31,16 @@
 	"Выйти": "Exit",
 	"Статьи": "Articles",
 	"Введите текст комментария": "Enter comment text",
-	"Отправить": "Send"
+	"Отправить": "Send",
+	"+ Текст": "+ Text",
+	"+ Code": "+ Code",
+	"+ Img": "+ Img",
+	"Сохранить статью": "Save Article",
+	"Изменить статью": "Edit Article",
+	"Отменить изменения": "Cancel changes",
+	"X": "X",
+	"Добавить параграф": "Add paragraph",
+	"Удалить блок": "Delete block",
+	"Тестовый заголовок": "Test Title",
+	"Тестовый текст": "Test text"
 }

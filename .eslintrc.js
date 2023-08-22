@@ -76,7 +76,7 @@ module.exports = {
 		'@typescript-eslint/no-invalid-void-type': 'off',
 		'@typescript-eslint/no-floating-promises': 'off',
 		'i18next/no-literal-string': [
-			'warn',
+			'error',
 			{
 				markupOnly: true,
 				ignoreAttribute: [
@@ -88,7 +88,12 @@ module.exports = {
 					'border',
 					'variant',
 					'align',
-					'wrap'
+					'wrap',
+					'color',
+					'direction',
+					'target',
+					'as',
+					'role'
 				]
 			}
 		],

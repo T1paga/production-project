@@ -51,10 +51,10 @@ export const EditBlock = memo((props: EditBlockProps): JSX.Element => {
 		return (
 			<HStack gap='16' justify='start'>
 				<Button onClick={handleAddNewParagraph}>
-					Добавить параграф
+					{t('Добавить параграф')}
 				</Button>
 				<Button onClick={handleDeleteBlock}>
-					Удалить блок
+					{t('Удалить блок')}
 				</Button>
 			</HStack>
 		)
@@ -63,7 +63,7 @@ export const EditBlock = memo((props: EditBlockProps): JSX.Element => {
 	if (blockType === ArticleBlockType.CODE) {
 		return (
 			<HStack gap='16' justify='start'>
-				<Button onClick={handleDeleteBlock}>Удалить блок</Button>
+				<Button onClick={handleDeleteBlock}>{t('Удалить блок')}</Button>
 			</HStack>
 		)
 	}
@@ -71,7 +71,7 @@ export const EditBlock = memo((props: EditBlockProps): JSX.Element => {
 	if (blockType === ArticleBlockType.IMAGE) {
 		return (
 			<HStack gap='16' justify='start'>
-				<Button onClick={handleDeleteBlock}>Удалить блок</Button>
+				<Button onClick={handleDeleteBlock}>{t('Удалить блок')}</Button>
 			</HStack>
 		)
 	}

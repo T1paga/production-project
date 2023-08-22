@@ -2,6 +2,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Text } from '../Text/Text'
 import { Card } from './Card'
+import { t } from 'i18next'
 
 export default {
 	title: 'shared/Card',
@@ -15,5 +16,5 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {
-	children: <Text title="test" text="text text" />
+	children: <Text title={t('Тестовый заголовок')} text={t('Тестовый текст')} />
 }

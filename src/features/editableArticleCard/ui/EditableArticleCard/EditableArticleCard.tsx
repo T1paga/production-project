@@ -6,9 +6,14 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { useGetArticleById } from '../../api/articleApi'
 import { Article } from '@/entities/Article'
 import { VStack } from '@/shared/ui/redesigned/Stack'
-import { EditableArticleCardBlockInfo } from '../EditableArticleCardBlockInfo/EditableArticleCardBlockInfo'
-import { EditableArticleCardMainInfo } from '../EditableArticleCardMainInfo/EditableArticleCardMainInfo'
-import { EditableArticleCardButtonsBlock } from '../EditableArticleCardButtonsBlock/EditableArticleCardButtonsBlock'
+import {
+	EditableArticleCardBlockInfo,
+	EditableArticleCardButtonsBlock,
+	EditableArticleCardMainInfo
+} from '../EditableArticleFields'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from '@/entities/User'
 
 interface EditableArticleCardProps {
 	className?: string
@@ -36,6 +41,9 @@ export const EditableArticleCard = memo((props: EditableArticleCardProps) => {
 	const { data, isLoading } = useGetArticleById(articleId)
 	const oldValue = useRef<Article | null>(null)
 	const [articleData, setArticleData] = useState<Article>(initialValue as Article)
+	const authData = useSelector(getUserAuthData)
+	const { id } = useParams<{ id: string }>()
+	const isPossibility = id === authData?.id
 
 	useEffect(() => {
 		if (!isLoading && data) {
@@ -46,11 +54,26 @@ export const EditableArticleCard = memo((props: EditableArticleCardProps) => {
 
 	return (
 		<div className={classNames(styles.EditableArticleCard, {}, [className])}>
-			<VStack gap='24'>
-				<EditableArticleCardMainInfo articleData={articleData} setArticleData={setArticleData} />
-				<EditableArticleCardBlockInfo articleData={articleData} setArticleData={setArticleData} />
-				<EditableArticleCardButtonsBlock articleData={articleData} setArticleData={setArticleData} oldValue={oldValue} />
-			</VStack>
-		</div>
+			{
+				isPossibility
+					? <>
+						<VStack gap='24'>
+							<EditableArticleCardMainInfo
+								articleData={articleData}
+								setArticleData={setArticleData}
+							/>
+							<EditableArticleCardBlockInfo
+								articleData={articleData}
+								setArticleData={setArticleData}
+							/>
+							<EditableArticleCardButtonsBlock
+								articleData={articleData}
+								setArticleData={setArticleData}
+								oldValue={oldValue}
+							/>
+						</VStack></>
+					: 'Доступ запрещен'
+			}
+		</div >
 	)
 })
